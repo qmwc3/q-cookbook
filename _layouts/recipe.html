@@ -7,11 +7,8 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <h1 class="site-title"><a href="{{ '/' | relative_url }}" style="color:var(--text-color-1);">{{ site.title | default: "My Cookbook" }}</a></h1>
-    </div>
-  </header>
+  
+  {% include header %}
 
   <main class="wrap recipe">
     <article class="recipe-article">
@@ -85,16 +82,10 @@
       <p class="description">Inspired by <a href="{{ page.source_url }}" target="_blank">{{ page.source_name }}</a></p>
       {% endif %}
 
-      <footer class="recipe-footer">
-        <p><small>Published: {{ page.date | date: "%Y-%m-%d" }}</small></p>
-      </footer>
     </article>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>&copy; {{ site.time | date: "%Y" }} {{ site.title | default: "My Cookbook" }}</p>
-    </div>
-  </footer>
+  {% include footer %}
+  
 </body>
 </html>
