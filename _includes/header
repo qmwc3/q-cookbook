@@ -1,0 +1,5 @@
+<header class="site-header">
+  <div class="wrap">
+    <h1 class="site-title"><a href="{{ '/' | relative_url }}" style="color:var(--text-color-1);">{{ site.title | default: "My Cookbook" }}</a></h1>
+  </div>
+</header>
