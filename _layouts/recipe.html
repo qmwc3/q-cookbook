@@ -18,6 +18,7 @@
       <h2 class="recipe-title">{{ page.title }}</h2>
 
       <div class="meta">
+        {% if page.prep_time %}<span>Prep: {{ page.prep_time }}</span>{% endif %}
         {% if page.cook_time %}<span>Time: {{ page.cook_time }}</span>{% endif %}
         {% if page.servings %}<span>Serves: {{ page.servings }}</span>{% endif %}
       </div>
