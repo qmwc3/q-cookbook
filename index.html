@@ -12,11 +12,8 @@ permalink: /
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <h1 class="site-title"><a href="{{ '/' | relative_url }}" style="color:var(--text-color-1);">{{ site.title | default: "My Cookbook" }}</a></h1>
-    </div>
-  </header>
+  
+  {% include header %}
 
   <main class="wrap">
     <h2>Welcome!</h2>
