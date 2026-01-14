@@ -13,15 +13,15 @@ permalink: /
 <body>
   <header class="site-header">
     <div class="wrap">
-      <h1 class="site-title"><a href="{{ '/' | relative_url }}">{{ site.title | default: "My Cookbook" }}</a></h1>
+      <h1 class="site-title"><a href="{{ '/' | relative_url }}" style="color:var(--text-color-1);">{{ site.title | default: "My Cookbook" }}</a></h1>
     </div>
   </header>
 
   <main class="wrap">
-    <h2>Welcome</h2>
+    <h2>Welcome!</h2>
     <p><a href="{{ '/search/' | relative_url }}">Search recipes by ingredient</a></p>
 
-    <h3>All recipes</h3>
+    <h2>All recipes</h2>
     <ul>
       {% if site.recipes and site.recipes.size > 0 %}
         {% for r in site.recipes %}
