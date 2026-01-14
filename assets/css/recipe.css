@@ -1,25 +1,28 @@
 :root{
   --max-width: 860px;
-  --accent: #8b3e2f;
-  --muted: #666;
-  --bg: #fffefc;
-  --accent-2: #f6e9e6;
+  --accent-color-1: #8b3e2f; /*dark red */
+  --accent-color-2: #f6e9e6; /*light pink */
+  --text-color-1: #222; /* white */
+  --muted: #666; /* light gray */
+  --bg: #36393e; /* dark gray */
 }
 
 *{box-sizing:border-box}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg); color:#222; margin:0; line-height:1.5}
+body{font-family:Roboto,Arial,sans-serif; background:var(--bg); color:var(--text-color-1); margin:0; line-height:1.5}
+a {color: #0066cc;text-decoration: underline;}
 .wrap{max-width:var(--max-width); margin:0 auto; padding:1rem}
-.site-header{background:var(--accent-2); border-bottom:4px solid var(--accent)}
-.site-title a{color:var(--accent); text-decoration:none}
+.site-header{background:var(--accent-color-2); border-bottom:4px solid var(--accent-color-1)}
+.site-title a{color:var(--accent-color-1); text-decoration:none}
 .recipe-title{margin-top:0}
 .meta span{margin-right:1rem; color:var(--muted); font-size:.95rem}
 .photo-gallery{display:flex; gap:.75rem; flex-wrap:wrap; margin:0 0 1rem 0}
 .photo img{max-width:100%; height:auto; display:block; border-radius:6px}
 .photo{flex:1 1 200px; min-width:200px}
-.ingredients, .directions{background:#fff; padding:1rem; border-radius:8px; margin-bottom:1rem}
+.ingredients, .preparations, .directions{background:#var(--bg); padding:1rem; border-radius:8px; margin-bottom:1rem}
 .ingredients ul{margin:0; padding-left:1.25rem}
+.preparations ol{margin:0; padding-left:1.25rem}
 .directions ol{margin:0; padding-left:1.25rem}
-.tags .tag{display:inline-block; padding:.25rem .5rem; background:var(--accent-2); color:var(--accent); border-radius:4px; text-decoration:none; margin-right:.5rem; font-size:.9rem}
+.tags .tag{display:inline-block; padding:.25rem .5rem; background:var(--accent-color-2); color:var(--accent-color-1); border-radius:4px; text-decoration:none; margin-right:.5rem; font-size:.9rem}
 .site-footer{padding:1rem 0; border-top:1px solid #eee; margin-top:2rem; color:var(--muted)}
 @media (max-width:640px){
   .photo{flex-basis:100%}
