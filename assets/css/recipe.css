@@ -10,7 +10,7 @@
 
 *{box-sizing:border-box}
 body{font-family:Roboto,Arial,sans-serif; background:var(--bg); color:var(--text-color-1); margin:0; line-height:1.5}
-a {color: var(--text-link-color-1);text-decoration: underline;}
+a {color:var(--text-link-color-1);text-decoration:underline;}
 .wrap{max-width:var(--max-width); margin:0 auto; padding:1rem}
 .site-header{background:var(--accent-color-2); border-bottom:4px solid var(--accent-color-1)}
 .site-title a{color:var(--accent-color-1); text-decoration:none}
@@ -21,10 +21,9 @@ a {color: var(--text-link-color-1);text-decoration: underline;}
 .photo{flex:1 1 200px; min-width:200px}
 .ingredients, .preparations, .directions{background:#var(--bg); padding:1rem; border-radius:8px; margin-bottom:1rem}
 .ingredients ul{margin:0; padding-left:1.25rem}
-.preparations ol{margin:0; padding-left:1.25rem}
-.directions ol{margin:0; padding-left:1.25rem}
+.directions, .preparations ol{margin:0; padding-left:1.25rem}
 .tags .tag{display:inline-block; padding:.25rem .5rem; background:var(--text-link-color-1); color:var(--bg); border-radius:4px; text-decoration:none; margin-right:.5rem; font-size:.9rem}
-.site-footer{padding:1rem 0; border-top:1px solid #eee; margin-top:2rem; color:var(--text-color-1)}
+.site-footer{padding:1rem 0; border-top:1px solid var(--accent-color-1); margin-top:2rem; color:var(--text-color-1)}
 @media (max-width:640px){
   .photo{flex-basis:100%}
 }
