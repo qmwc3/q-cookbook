@@ -8,7 +8,8 @@ permalink: /
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{{ site.title | default: "My Cookbook" }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/recipe.css' | relative_url }}">
+  <script src="{{ '/assets/js/ingredient-search.js' | relative_url }}"></script>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
   <header class="site-header">
@@ -20,7 +21,15 @@ permalink: /
   <main class="wrap">
     <h2>Welcome!</h2>
     <p><a href="{{ '/search/' | relative_url }}">Search recipes by ingredient</a></p>
-
+		
+		<form id="ingredient-search" class="ingredient-search" onsubmit="return false;">
+			<label for="ingredient-search-input">Search ingredients</label>
+			<input id="ingredient-search-input" type="search" placeholder="e.g., garlic, chicken, rice" autocomplete="off" />
+			<div id="ingredient-search-results" class="ingredient-search-results">
+				<p class="muted">Enter an ingredient to search recipes.</p>
+			</div>
+		</form>
+		
     <h2>All recipes</h2>
     <ul>
       {% if site.recipes and site.recipes.size > 0 %}
