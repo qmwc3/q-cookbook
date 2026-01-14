@@ -9,6 +9,7 @@
  } 
 
 * { box-sizing:border-box } 
+body { background:var(--accent-color-2); }
 h1 { font-family:Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:2em; font-weight:bold; line-height:1.5; margin:0; } 
 h2 { font-family:Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:1.5em; font-weight:bold; line-height:1.5; margin:0; } 
 h3 { font-family:Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:1.25em; font-weight:bold; line-height:1.5; margin:0; } 
