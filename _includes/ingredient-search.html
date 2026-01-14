@@ -1,3 +1,5 @@
+<script src="{{ '/assets/js/ingredient-search.js' | relative_url }}"></script>
+
 <form id="ingredient-search" class="ingredient-search" onsubmit="return false;">
   <label for="ingredient-search-input">Search ingredients</label>
   <input id="ingredient-search-input" type="search" placeholder="e.g., garlic, flour, cheddar" autocomplete="off" />
@@ -5,6 +7,3 @@
     <p class="muted">Enter an ingredient to search recipes.</p>
   </div>
 </form>
-
-<script src="{{ '/assets/js/ingredient-search.js' | relative_url }}"></script>
-<link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
