@@ -1,6 +1,6 @@
 title: "My Cookbook"
-baseurl: "" # set if you host at github.com/username/repo (leave empty or "/repo" as needed)
-url: "https://qmwc3.github.io/q-recipe-archive" # change to your pages url if desired
+url: "https://qmwc3.github.io"
+baseurl: "/q-recipe-archive"
 
 collections:
   recipes:
