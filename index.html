@@ -17,11 +17,10 @@ permalink: /
 
   <main class="wrap">
     <h2>Welcome!</h2>
-    <p><a href="{{ '/search/' | relative_url }}">Search recipes by ingredient</a></p>
 		
 		{% include ingredient-search.html %}
 		
-    <h2>All recipes</h2>
+    <h3>All recipes</h3>
     <ul>
       {% if site.recipes and site.recipes.size > 0 %}
         {% for r in site.recipes %}
