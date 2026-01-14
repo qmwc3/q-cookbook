@@ -50,20 +50,20 @@
       
       <section class="preparations">
         <h3>Preparations</h3>
-        <ol>
+        <ul>
           {% for step in page.preparations %}
             <li>{{ step }}</li>
           {% endfor %}
-        </ol>
+        </ul>
       </section>
 
       <section class="directions">
         <h3>Directions</h3>
-        <ul>
+        <ol>
           {% for step in page.directions %}
             <li>{{ step }}</li>
           {% endfor %}
-        </ul>
+        </ol>
       </section>
       
       {% if page.pairing %}
