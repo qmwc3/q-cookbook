@@ -24,8 +24,7 @@ a{color:var(--text-link-color-1);text-decoration:underline;}
 /* recipe page */
 .recipe-title{margin-top:0}
 .ingredients, .preparations, .directions{background:#var(--bg); padding:0.5rem; border-radius:8px;}
-ul{margin:0; padding-left:1.25rem}
-ol{margin:0; padding-left:1.25rem}
+ul, ol{margin:0; padding-left:1.25rem}
 
 /* ingredients search */
 .ingredient-search { margin: 0 0 1rem 0; }
