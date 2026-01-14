@@ -2,10 +2,10 @@
   --max-width: 860px;
   --accent-color-1: #AA96B7; /* light purple */
   --accent-color-2: #5E3B4D; /* dark plum */
-  --accent-color-3: #F1E3B8; /* gold */
+  --accent-color-3: #F4C7B9; /* peach */
   --text-color-1: #F2F2F2; /* white */
   --text-link-color-1: #D9E2A8; /* lime green */
-  --muted: #666; /* light gray */
+  --accent-color-3: #666; /* light gray */
   --bg: #4B2B30; /* chocolate brown */
 }
 
@@ -16,7 +16,7 @@ a {color:var(--text-link-color-1);text-decoration:underline;}
 .site-header{background:var(--accent-color-2); border-bottom:4px solid var(--accent-color-1)}
 .site-title a{color:var(--accent-color-1); text-decoration:none}
 .recipe-title{margin-top:0}
-.meta span{margin-right:1rem; color:var(--muted); font-size:.95rem}
+.meta span{margin-right:1rem; color:var(--accent-color-3); font-size:.95rem}
 .photo-gallery{display:flex; gap:.75rem; flex-wrap:wrap; margin:0 0 1rem 0}
 .photo img{max-width:100%; height:auto; display:block; border-radius:6px}
 .photo{flex:1 1 200px; min-width:200px}
@@ -34,7 +34,7 @@ a {color:var(--text-link-color-1);text-decoration:underline;}
 .ingredient-search-item { padding:.5rem 0; border-bottom:1px solid var(--accent-color-1) }
 .ingredient-search-item a { font-weight:600; color:var(--text-link-color-1); text-decoration:none }
 .ingredients-snippet { color:var(--text-color-1); font-size:.95rem; margin-top:.25rem }
-.ingredients-snippet mark { background:var(--accent-color-3); color:var(--text-color-1); padding:0 .15rem; border-radius:2px }
+.ingredients-snippet mark { background:var(--accent-color-3); color:var(--text-color-1); padding:.15rem; border-radius:2px }
 
 @media (max-width:640px){
   .photo{flex-basis:100%}
