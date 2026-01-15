@@ -8,6 +8,7 @@ date: 2026-01-14
 description: ""
 prep_time: ""
 cook_time: ""
+rest_time: ""
 total_time: ""
 servings: ""
 tags: 
