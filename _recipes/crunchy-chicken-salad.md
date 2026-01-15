@@ -1,6 +1,3 @@
-Use the below as a template to add more recipes, then upload to the recipes folder
-Do not remove triple dashes (---) they are important
-
 ---
 layout: recipe
 title: "Crunchy Chicken Salad"
