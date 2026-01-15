@@ -17,8 +17,9 @@
       <div class="meta">
         {% if page.prep_time != "" %}<span>Prep: {{ page.prep_time }}</span>{% endif %}
         {% if page.cook_time != "" %}<span>Cook: {{ page.cook_time }}</span>{% endif %}
+        {% if page.rest_time != "" %}<span>Rest: {{ page.rest_time }}</span>{% endif %}
         {% if page.total_time %}<span>Total: {{ page.total_time }}</span>{% endif %}
-        {% if page.servings %}<span>Serves: {{ page.servings }}</span>{% endif %}
+        {% if page.servings %}<span>Servings: {{ page.servings }}</span>{% endif %}
       </div>
 
       {% if page.photos %}
@@ -34,6 +35,10 @@
 
       {% if page.description != "" %}
       <p class="description">{{ page.description }}</p>
+      {% endif %}
+      
+      {% if page.notes != "" %}
+      <p class="description">{{ page.notes }}</p>
       {% endif %}
 
       <section class="ingredients">
