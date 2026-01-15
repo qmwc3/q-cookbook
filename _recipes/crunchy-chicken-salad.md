@@ -24,9 +24,9 @@ ingredients:
   - "¾ cup dry-roasted peanuts"
   - "1 cup carrots"
   - "2 pounds chicken"
-  - "Cabbage"
-  - "Scrambled egg (optional)"
-  - "Edamame (optional)"
+  - "Optional:"
+    - "Scrambled egg"
+    - "Edamame"
 preparations:
   - "Cook and chop the chicken."
   - "Chop the green onions."
