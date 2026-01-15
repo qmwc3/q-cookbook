@@ -5,6 +5,7 @@ date: 2026-01-14
 description: "A quick one-skillet meal with ground beef, cabbage, and classic egg roll flavors."
 prep_time: "10 minutes"
 cook_time: "20 minutes"
+rest_time: ""
 total_time: "30 minutes"
 servings: "4"
 tags:
