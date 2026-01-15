@@ -33,9 +33,8 @@ a { color:var(--text-link-color-1);text-decoration:underline; }
 /* recipe page */
 ul, ol { margin:0; padding-left:1.25rem } 
 .ingredients, .preparations, .directions { background:#var(--bg); padding:0.5rem; border-radius:8px; } 
-.ingredient-header { list-style: none; font-weight: 600; margin-top: 0.75rem; }
+.ingredient-header { list-style: none; }
 .ingredient-nested { list-style: none; padding-left: 0; }
-.ingredient-sublist { margin-left: 1.25rem; }
 .recipe-title { margin-top:0 } 
 
 /* ingredients search */
