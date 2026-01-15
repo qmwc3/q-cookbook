@@ -30,11 +30,12 @@ ingredients:
 preparations:
   - "Cook and dice the chicken."
   - "Chop up the celery."
+  - "In a sealable jar, add the salt, celery salt, poppy seeds, dry mustard, sugar, mayonnaise, milk, and vinegar."
 directions:
   - "Cook, drain, and rinse the pasta."
-  - "In a separate bowl, whisk the salts, celery salt, poppy seeds, dry mustard, sugar, mayonnaise, milk, and vinegar together."
   - "In a large bowl, mix the cooked pasta, chicken, craisins, and celery."
-  - "Mix the poppy seed dressing into the pasta mixture and refrigerate for 2 hours."
+  - "Shake the poppy seed dressing in its container and toss into the pasta mixture."
+  - "Refrigerate for 2 hours."
   - "Stir in almonds."
 pairing: ""
 photos: []
