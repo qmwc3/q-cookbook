@@ -44,9 +44,17 @@
       <section class="ingredients">
         <h3>Ingredients</h3>
         <ul>
-          {% for item in page.ingredients %}
-            <li>{{ item }}</li>
-          {% endfor %}
+          {% if ingredient.label %}
+          <!-- Header with NO bullet -->
+          <li class="ingredient-header">{{ ingredient.label }}</li>
+          <ul class="ingredient-sublist">
+            {% for item in page.ingredients %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+          {% else %}
+            <li>{{ ingredient }}</li>
+          {% endif %}
         </ul>
       </section>
       
