@@ -1,3 +1,8 @@
+---
+layout: default
+title: "Recipes by Tag"
+permalink: /recipe-tags/
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,94 +13,21 @@
 </head>
 <body>
   
+  {% assign url_parts = page.url | split: '/' %}
+  {% assign tag_name = url_parts | last %}
   {% include header %}
 
   <main class="wrap recipe">
-    <article class="recipe-article">
-      <h2 class="recipe-title">{{ page.title }}</h2>
 
-      <div class="meta">
-        {% if page.prep_time != "" %}<span>Prep: {{ page.prep_time }}</span>{% endif %}
-        {% if page.cook_time != "" %}<span>Cook: {{ page.cook_time }}</span>{% endif %}
-        {% if page.rest_time != "" %}<span>Rest: {{ page.rest_time }}</span>{% endif %}
-        {% if page.total_time %}<span>Total: {{ page.total_time }}</span>{% endif %}
-        {% if page.servings %}<span>Servings: {{ page.servings }}</span>{% endif %}
-      </div>
-
-      {% if page.photos %}
-      <div class="photo-gallery">
-        {% for photo in page.photos %}
-          <figure class="photo">
-            <img src="{{ photo.src | relative_url }}" alt="{{ photo.alt | default: page.title }}">
-            {% if photo.caption %}<figcaption>{{ photo.caption }}</figcaption>{% endif %}
-          </figure>
-        {% endfor %}
-      </div>
+  <h1>Recipes tagged "{{ tag_name }}"</h1>
+  <ul>
+    {% for r in site.recipes | sort: "title" %}
+      {% if r.tags contains tag_name %}
+        <li><a href="{{ r.url | relative_url }}">{{ r.title }}</a></li>
       {% endif %}
-
-      {% if page.description != "" %}
-      <p class="description">{{ page.description }}</p>
-      {% endif %}
-      
-      {% if page.notes != "" %}
-      <p class="description">Note: {{ page.notes }}</p>
-      {% endif %}
-
-      <section class="ingredients">
-        <h3>Ingredients</h3>
-        <ul>
-          {% for item in page.ingredients %}
-            <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
-        {% if page.ingredients_subhead != "" %}
-        <h3>{{ page.ingredients_subhead }}</h3>
-        <ul>
-          {% for item in page.ingredients_2 %}
-            <li>{{ item }}</li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </section>
-      
-      <section class="preparations">
-        <h3>Preparations</h3>
-        <ul>
-          {% for step in page.preparations %}
-            <li>{{ step }}</li>
-          {% endfor %}
-        </ul>
-      </section>
-
-      <section class="directions">
-        <h3>Directions</h3>
-        <ol>
-          {% for step in page.directions %}
-            <li>{{ step }}</li>
-          {% endfor %}
-        </ol>
-      </section>
-      
-      {% if page.pairing != "" %}
-      <p class="description">{{ page.pairing }}</p>
-      {% endif %}
-
-      {% if page.tags %}
-      <section class="tags">
-        <h4>Tags</h4>
-        <p>
-          {% for tag in page.tags %}
-            <a class="tag" href="{{ '/recipe-tags' | append: tag | relative_url }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-          {% endfor %}
-        </p>
-      </section>
-      {% endif %}
-      
-      {% if page.source_url != "" %}
-      <p class="description">Inspired by <a href="{{ page.source_url }}" target="_blank">{{ page.source_name }}</a></p>
-      {% endif %}
-
-    </article>
+    {% endfor %}
+  </ul>
+    
   </main>
 
   {% include footer %}
