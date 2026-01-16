@@ -68,17 +68,13 @@
       </section>
 
       <section class="directions">
-			<h3>Directions</h3>
-			<ol>
-				{% for step in page.directions %}
-					{% assign lines = step | split: '\n' %}
-					{% for line in lines %}
-						<li>{{ line }}</li>
-					{% endfor %}
-				{% endfor %}
-			</ol>
-		</section>
-
+        <h3>Directions</h3>
+        <ol>
+          {% for step in page.directions %}
+            <li>{{ step }}</li>
+          {% endfor %}
+        </ol>
+      </section>
       
       {% if page.pairing != "" %}
       <p class="description">{{ page.pairing }}</p>
@@ -89,7 +85,7 @@
         <h4>Tags</h4>
         <p>
           {% for tag in page.tags %}
-            <a class="tag" href="{{ '/recipe-tags' | append: tag | relative_url }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+            <a class="tag" href="{{ '/recipe-tags/' | append: tag | relative_url }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
           {% endfor %}
         </p>
       </section>
