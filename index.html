@@ -21,23 +21,14 @@ permalink: /
 		{% include ingredient-search.html %}
 		
     <h3>All recipes</h3>
+	<ul>
 	  {% assign recipes_by_folder = site.recipes | group_by_exp: "r", "r.path | split: '/' | slice: 1,1 | first" %}
 	  {% for folder_group in recipes_by_folder %}
-		{% assign folder_name = folder_group.name %}
-		{% if folder_name != "" %}
-		  <li>
-			<ul>
-			  {% for r in folder_group.items %}
-				<li><a href="{{ r.url | relative_url }}">{{ r.title }}</a></li>
-			  {% endfor %}
-			</ul>
-		  </li>
-		{% else %}
 		  {% for r in folder_group.items %}
 			<li><a href="{{ r.url | relative_url }}">{{ r.title }}</a></li>
 		  {% endfor %}
-		{% endif %}
 	  {% endfor %}
+	</ul>
 
   </main>
 
