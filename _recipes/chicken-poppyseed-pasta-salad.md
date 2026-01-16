@@ -14,7 +14,14 @@ tags:
 source_name: ""
 source_url: ""
 ingredients:
-  - "½ teaspoon of salt"
+  - "16 ounces pasta"
+  - "2 chicken breasts"
+  - "1½ cup craisins"
+  - "4 stalks celery"
+  - "¾ cup slivered almonds"
+ingredients_2: "Dressing"
+ingredients_2:
+	- "½ teaspoon of salt"
   - "½ teaspoon of celery salt"
   - "2 teaspoons of poppy seeds"
   - "½ teaspoon of dry mustard"
@@ -22,15 +29,10 @@ ingredients:
   - "½ cup of mayonnaise"
   - "¾ cup of milk"
   - "3½ tablespoons of white wine vinegar"
-  - "16 ounces pasta"
-  - "2 chicken breasts"
-  - "1½ cup craisins"
-  - "4 stalks celery"
-  - "¾ cup slivered almonds"
 preparations:
   - "Cook and dice the chicken."
   - "Chop up the celery."
-  - "In a sealable jar, add the salt, celery salt, poppy seeds, dry mustard, sugar, mayonnaise, milk, and vinegar."
+  - "In a sealable jar, add all dressing ingredients and shake until blended."
 directions:
   - "Cook, drain, and rinse the pasta."
   - "In a large bowl, mix the cooked pasta, chicken, craisins, and celery."
