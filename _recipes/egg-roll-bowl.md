@@ -10,7 +10,7 @@ total_time: "30 minutes"
 servings: "4"
 tags:
   - dishes
-  - 1 pot
+  - 1-pot
 source_name: ""
 source_url: ""
 ingredients:
