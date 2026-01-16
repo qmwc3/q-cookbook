@@ -11,7 +11,7 @@ total_time: "30 minutes"
 servings: "6 servings"
 tags: 
   - dishes
-  - 1 pot/skillet
+  - 1-pot
 source_name: ""
 source_url: ""
 ingredients:
@@ -33,7 +33,8 @@ preparations:
 directions:
   - In a dutch oven, cook the sausage, onion, and garlic over medium heat until the sausage is no longer pink.
   - Drain excess liquid.
-  - Add the broth and bring to a boil (add water to the pot, wait to boil, and add bouillon cubes).
+  - Add the broth and bring to a boil
+      - If using a dehydrated broth: add the water to the pot, wait to boil, and then add the dehydrated broth.
   - Add the pasta and cook for 3 minutes, stirring frequently.
   - Gradually add the spinach.
   - Cook and stir until the pasta is tender and the spinach is wilted (2 minutes).
