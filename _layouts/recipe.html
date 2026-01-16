@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{ page.title }} - {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>{{ page.title }} - {{ site.title }}</title>
+	<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
-  
-  {% include header %}
-
-  <main class="wrap recipe">
+	
+	{% include header %}
+	
+	<main class="wrap recipe">
     <article class="recipe-article">
       <h2 class="recipe-title">{{ page.title }}</h2>
 
@@ -34,7 +34,7 @@
       {% endif %}
 
       {% if page.description and page.description != "" %}
-      <p class="description">{{ page.description }}</p>
+     	<p class="description">{{ page.description }}</p>
       {% endif %}
       
       {% if page.notes and page.notes != "" %}
