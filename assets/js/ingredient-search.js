@@ -22,11 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function normalize(s) { return (s || '').toLowerCase(); }
 
-  function matches(recipe, tokens) {
+  function matches(recipe, query) {
     if (!recipe.ingredients) return false;
     const ingText = recipe.ingredients.join(' ').toLowerCase();
-    return tokens.every(t => ingText.indexOf(t) !== -1);
+    return ingText.includes(query);
   }
+
 
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, function (m) {
@@ -68,8 +69,11 @@ document.addEventListener('DOMContentLoaded', function () {
   if (input) {
     input.addEventListener('input', function (e) {
       const q = normalize(e.target.value);
-      const tokens = q.split(/\s+/).filter(Boolean);
-      const matched = tokens.length ? recipes.filter(r => matches(r, tokens)) : [];
+      const query = normalize(e.target.value).trim();
+      const tokens = query.split(/\s+/).filter(Boolean);
+      const matched = query
+        ? recipes.filter(r => matches(r, query))
+        : [];
       render(matched, tokens);
     });
   }
