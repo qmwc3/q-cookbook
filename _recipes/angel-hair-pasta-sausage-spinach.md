@@ -33,7 +33,7 @@ preparations:
 directions:
   - "In a dutch oven, cook the sausage, onion, and garlic over medium heat until the sausage is no longer pink."
   - "Drain excess liquid."
-  - "Add the broth and bring to a boil.\n  - If using a dehydrated broth: add the water to the pot, wait to boil, and then add the dehydrated broth."
+  - "Add the broth and bring to a boil.<br>- If using a dehydrated broth: add the water to the pot, wait to boil, and then add the dehydrated broth."
   - "Add the pasta and cook for 3 minutes, stirring frequently."
   - "Gradually add the spinach."
   - "Cook and stir until the pasta is tender and the spinach is wilted (2 minutes)."
