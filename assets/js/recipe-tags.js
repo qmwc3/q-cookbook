@@ -15,21 +15,16 @@ document.addEventListener('DOMContentLoaded', function () {
       recipes = data;
       renderTags();
 
-      // Read tag from query string: /recipe-tags/?tag=dishes
+      // Read tag from query string ?tag=<tag>
       const params = new URLSearchParams(window.location.search);
-      const tagFromUrl = params.get('tag');
-      if(tagFromUrl) filterByTag(tagFromUrl);
+      const tag = params.get('tag');
+      if(tag) filterByTag(tag);
     })
-    .catch(err => {
-      console.error('Failed to load recipes.json', err);
-    });
+    .catch(err => console.error('Failed to load recipes.json', err));
 
   function renderTags() {
     const tagSet = new Set();
-
-    recipes.forEach(r => {
-      (r.tags || []).forEach(tag => tagSet.add(tag));
-    });
+    recipes.forEach(r => (r.tags || []).forEach(tag => tagSet.add(tag)));
 
     [...tagSet].sort().forEach(tag => {
       const btn = document.createElement('button');
@@ -37,9 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
       btn.textContent = tag;
       btn.type = 'button';
       btn.onclick = () => {
-        // Update query string in URL without reload
-        const newUrl = baseUrl + '?tag=' + encodeURIComponent(tag);
-        history.pushState({}, '', newUrl);
+        // update query string in URL without reload
+        history.pushState({}, '', baseUrl + '?tag=' + encodeURIComponent(tag));
         filterByTag(tag);
       };
       tagButtons.appendChild(btn);
@@ -48,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function filterByTag(tag) {
     results.innerHTML = '';
-
     recipes
       .filter(r => (r.tags || []).includes(tag))
       .forEach(r => {
@@ -56,14 +49,5 @@ document.addEventListener('DOMContentLoaded', function () {
         li.innerHTML = `<a href="${r.url}">${r.title}</a>`;
         results.appendChild(li);
       });
-
-    highlightActiveTag(tag);
-  }
-
-  function highlightActiveTag(activeTag) {
-    const buttons = tagButtons.querySelectorAll('.tag');
-    buttons.forEach(btn => {
-      btn.classList.toggle('active', btn.textContent === activeTag);
-    });
   }
 });
