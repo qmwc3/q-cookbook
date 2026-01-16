@@ -31,7 +31,6 @@ preparations:
   - "Chop the onion."
   - "Slice the sausages into bite-sized rounds."
 directions:
-  directions:
   - "In a dutch oven, cook the sausage, onion, and garlic over medium heat until the sausage is no longer pink."
   - "Drain excess liquid."
   - "Add the broth and bring to a boil."
