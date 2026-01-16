@@ -10,7 +10,7 @@ permalink: /recipes.json
     "ingredients": {{ r.ingredients | jsonify }},
     "description": {{ r.description | default: r.excerpt | strip_html | jsonify }},
     "date": {{ r.date | date: "%Y-%m-%d" | jsonify }},
-    "tags": {{ r.tags | jsonify }}
+    "tags": {{ r.tags | default: [] | jsonify }}
   }{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]
