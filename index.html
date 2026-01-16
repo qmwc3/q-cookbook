@@ -19,16 +19,18 @@ permalink: /
     <h2 style="padding: 0 0 15px;">Welcome!</h2>
 		
 		{% include ingredient-search.html %}
-		
+
+	  <h2><a class="tag" href="{{ '/recipe-tags' relative_url }}">Filter by tags</a></h2>
+	  
     <h3>All recipes</h3>
-	<ul>
-	  {% assign recipes_by_folder = site.recipes | group_by_exp: "r", "r.path | split: '/' | slice: 1,1 | first" %}
-	  {% for folder_group in recipes_by_folder %}
-		  {% for r in folder_group.items %}
-			<li><a href="{{ r.url | relative_url }}">{{ r.title }}</a></li>
+		<ul>
+		  {% assign recipes_by_folder = site.recipes | group_by_exp: "r", "r.path | split: '/' | slice: 1,1 | first" %}
+		  {% for folder_group in recipes_by_folder %}
+			  {% for r in folder_group.items %}
+				<li><a href="{{ r.url | relative_url }}">{{ r.title }}</a></li>
+			  {% endfor %}
 		  {% endfor %}
-	  {% endfor %}
-	</ul>
+		</ul>
 
   </main>
 
