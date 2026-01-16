@@ -1,8 +1,7 @@
 ---
 layout: recipe
 title: "Chicken Poppyseed Pasta Salad"
-date: 2026-01-15
-description: ""
+description: "A refreshing pasta salad with chicken, celery, craisins, and almonds all tossed in a creamy poppyseed dressing and chilled for serve‑ahead flavor."
 notes: "If using more pasta and/or chicken than called for, double the dressing."
 prep_time: "30 minutes"
 cook_time: "20 minutes"
@@ -29,6 +28,9 @@ ingredients_2:
   - "½ cup of mayonnaise"
   - "¾ cup of milk"
   - "3½ tablespoons of white wine vinegar"
+ingredients_subhead: ""
+ingredients_2:
+  - ""
 preparations:
   - "Cook and dice the chicken."
   - "Chop up the celery."
