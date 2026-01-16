@@ -1,8 +1,8 @@
 ---
 layout: recipe
 title: "Gnocchi Chicken Pot Pie"
-date: 2026-01-14
 description: "A creamy one‑pot gnocchi and chicken dish with vegetables."
+notes: ""
 prep_time: "10 minutes"
 cook_time: "35 minutes"
 rest_time: ""
@@ -10,7 +10,7 @@ total_time: "45 minutes"
 servings: "4"
 tags:
   - dishes
-  - 1 pot/skillet
+  - 1 pot
 source_name: "Iowa Girl Eats"
 source_url: "https://iowagirleats.com/one-pot-gnocchi-chicken-pot-pie/"
 ingredients:
@@ -27,6 +27,9 @@ ingredients:
   - "12 ounces gnocchi"
   - "1½ cups chicken"
   - "½ cup peas"
+ingredients_subhead: ""
+ingredients_2:
+	-
 preparations:
   - "Slice the carrots."
   - "Slice the celery."
