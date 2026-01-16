@@ -1,8 +1,8 @@
 ---
 layout: recipe
 title: "Egg Roll in a Bowl"
-date: 2026-01-14
-description: "A quick one-skillet meal with ground beef, cabbage, and classic egg roll flavors."
+description: "A quick one-skillet meal with ground beef, cabbage, and classic egg roll&nbsp;flavors."
+notes: ""
 prep_time: "10 minutes"
 cook_time: "20 minutes"
 rest_time: ""
@@ -10,7 +10,7 @@ total_time: "30 minutes"
 servings: "4"
 tags:
   - dishes
-  - 1 pot/skillet
+  - 1 pot
 source_name: ""
 source_url: ""
 ingredients:
@@ -27,6 +27,9 @@ ingredients:
   - "½ cup soy sauce"
   - "3 stalks green onion"
   - "1½ cups rice"
+ingredients_subhead: ""
+ingredients_2:
+  - ""
 preparations:
   - "Dice the onion."
   - "Shred the carrots."
