@@ -29,7 +29,7 @@ ingredients:
   - "½ cup peas"
 ingredients_subhead: ""
 ingredients_2:
-	-
+	- ""
 preparations:
   - "Slice the carrots."
   - "Slice the celery."
