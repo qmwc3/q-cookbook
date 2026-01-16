@@ -14,15 +14,19 @@ permalink: /recipe-tags
   
   {% include header %}
 
-  <section class="recipe-tags">
-    <h2>Filter by Tag</h2>
+  <main class="wrap">
+    
+    <section class="recipe-tags">
+      <h2>Filter by Tag</h2>
+    
+      <div id="tag-buttons" class="tag-buttons"></div>
+    
+      <ul id="tag-results" class="recipe-list"></ul>
+    </section>
   
-    <div id="tag-buttons" class="tag-buttons"></div>
-  
-    <ul id="tag-results" class="recipe-list"></ul>
-  </section>
+    <script src="{{ '/assets/js/recipe-tags.js' | relative_url }}"></script>
 
-  <script src="{{ '/assets/js/recipe-tags.js' | relative_url }}"></script>
+  </main>
 
   {% include footer %}
   
