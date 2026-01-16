@@ -14,6 +14,7 @@ a { color:var(--text-link-color-1);text-decoration:underline; }
 h1 { font-family:Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:2em; font-weight:bold; line-height:1.5; display:inline-block; margin:0; } 
 h2 { font-family:Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:1.5em; font-weight:bold; line-height:1.5; margin:0; } 
 h3 { font-family:Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:1.25em; font-weight:bold; line-height:1.5; margin:0; } 
+ul, ol { margin:0; padding-left:1.25rem } 
 
 .wrap { max-width:var(--max-width); margin:0 auto; padding:1rem } 
 .meta span { margin-right:1rem; color:var(--accent-color-3); font-size:.95rem } 
@@ -21,7 +22,7 @@ h3 { font-family:Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:1
 .photo { flex:1 1 200px; min-width:200px } 
 .photo img { max-width:100%; height:auto; display:block; border-radius:6px } 
 .photo-gallery { display:flex; gap:.75rem; flex-wrap:wrap; margin:0 0 1rem 0 } 
-.recipe-list { list-style: none; padding-left: 0; }
+.recipe-list { list-style:disc; line-height:2em; }
 .tags .tag { display:inline-block; padding:.25rem .5rem; background:var(--text-link-color-1); color:var(--bg); border-radius:4px; text-decoration:none; margin-right:.5rem; font-size:.9rem } 
 
 /* header */
@@ -33,7 +34,6 @@ h3 { font-family:Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:1
 .site-footer { padding:1rem 0; border-top:1px solid var(--accent-color-1); margin-top:2rem; color:var(--text-color-1) } 
 
 /* recipe page */
-ul, ol { margin:0; padding-left:1.25rem } 
 .ingredients, .preparations, .directions { background:#var(--bg); padding:0.5rem; border-radius:8px; } 
 .ingredient-header { list-style:none; font-weight:600; }
 .ingredient-nested { list-style:none; padding-left:0; }
