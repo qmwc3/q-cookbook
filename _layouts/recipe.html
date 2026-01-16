@@ -15,14 +15,14 @@
       <h2 class="recipe-title">{{ page.title }}</h2>
 
       <div class="meta">
-        {% if page.prep_time != "" %}<span>Prep: {{ page.prep_time }}</span>{% endif %}
-        {% if page.cook_time != "" %}<span>Cook: {{ page.cook_time }}</span>{% endif %}
-        {% if page.rest_time != "" %}<span>Rest: {{ page.rest_time }}</span>{% endif %}
-        {% if page.total_time %}<span>Total: {{ page.total_time }}</span>{% endif %}
-        {% if page.servings %}<span>Servings: {{ page.servings }}</span>{% endif %}
+        {% if page.prep_time and page.prep_time != "" %}<span>Prep: {{ page.prep_time }}</span>{% endif %}
+        {% if page.cook_time and page.cook_time != "" %}<span>Cook: {{ page.cook_time }}</span>{% endif %}
+        {% if page.rest_time and page.rest_time != "" %}<span>Rest: {{ page.rest_time }}</span>{% endif %}
+        {% if page.total_time and page.total_time != "" %}<span>Total: {{ page.total_time }}</span>{% endif %}
+        {% if page.servings and page.servings != "" %}<span>Servings: {{ page.servings }}</span>{% endif %}
       </div>
 
-      {% if page.photos %}
+      {% if page.photos and page.photos != "" %}
       <div class="photo-gallery">
         {% for photo in page.photos %}
           <figure class="photo">
@@ -33,11 +33,11 @@
       </div>
       {% endif %}
 
-      {% if page.description != "" %}
+      {% if page.description and page.description != "" %}
       <p class="description">{{ page.description }}</p>
       {% endif %}
       
-      {% if page.notes != "" %}
+      {% if page.notes and page.notes != "" %}
       <p class="description">Note: {{ page.notes }}</p>
       {% endif %}
 
@@ -48,7 +48,7 @@
             <li>{{ item }}</li>
           {% endfor %}
         </ul>
-        {% if page.ingredients_subhead != "" %}
+        {% if page.ingredients_subhead and page.ingredients_subhead != "" %}
         <h3>{{ page.ingredients_subhead }}</h3>
         <ul>
           {% for item in page.ingredients_2 %}
@@ -68,19 +68,20 @@
       </section>
 
       <section class="directions">
-        <h3>Directions</h3>
+				<h3>Directions</h3>
         <ol>
           {% for step in page.directions %}
             <li>{{ step }}</li>
           {% endfor %}
         </ol>
-      </section>
+			</section>
+
       
-      {% if page.pairing != "" %}
+      {% if page.pairing and page.pairing != "" %}
       <p class="description">{{ page.pairing }}</p>
       {% endif %}
 
-      {% if page.tags %}
+      {% if page.tags and page.tags != "" %}
       <section class="tags">
         <h4>Tags</h4>
         <p>
@@ -91,7 +92,7 @@
       </section>
       {% endif %}
       
-      {% if page.source_url != "" %}
+      {% if page.source_url and page.source_url != "" %}
       <p class="description">Inspired by <a href="{{ page.source_url }}" target="_blank">{{ page.source_name }}</a></p>
       {% endif %}
 
