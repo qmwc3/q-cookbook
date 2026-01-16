@@ -19,7 +19,7 @@ ingredients:
   - "1½ cup craisins"
   - "4 stalks celery"
   - "¾ cup slivered almonds"
-ingredients_2: "Dressing"
+ingredients_subhead: "Dressing"
 ingredients_2:
   - "½ teaspoon of salt"
   - "½ teaspoon of celery salt"
