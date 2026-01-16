@@ -2,34 +2,16 @@
 layout: null
 permalink: /recipe-tags/
 ---
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{ page.title }} - {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-</head>
-<body>
-  
-  {% assign url_parts = page.url | split: '/' %}
-  {% assign tag_name = url_parts | last %}
-  {% include header %}
 
-  <main class="wrap">
+<main class="wrap">
+  <h1>All Recipe Tags</h1>
 
-  <h1>Recipes tagged "{{ tag_name }}"</h1>
+  {% assign all_tags = site.recipes | map: "tags" | flatten | uniq | sort %}
+
   <ul>
-    {% for r in site.recipes | sort: "title" %}
-      {% if r.tags contains tag_name %}
-        <li><a href="{{ r.url | relative_url }}">{{ r.title }}</a></li>
-      {% endif %}
+    {% for tag in all_tags %}
+      <li><a href="/recipe-tags/{{ tag | downcase | replace: ' ', '-' }}/">{{ tag }}</a></li>
     {% endfor %}
   </ul>
-    
-  </main>
 
-  {% include footer %}
-  
-</body>
-</html>
+</main>
