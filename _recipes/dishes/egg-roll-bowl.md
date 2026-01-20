@@ -1,6 +1,6 @@
 ---
 layout: recipe
-title: "Egg Roll in a&nbsp;Bowl"
+title: "Egg Roll in a Bowl"
 description: "A quick one-skillet meal with ground beef, cabbage, and classic egg roll&nbsp;flavors."
 notes: ""
 prep_time: "10m"
