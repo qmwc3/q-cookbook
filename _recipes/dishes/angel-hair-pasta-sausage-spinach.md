@@ -1,6 +1,6 @@
 ---
 layout: recipe
-title: "Angel Hair Pasta with Sausage and&nbsp;Spinach"
+title: "Angel Hair Pasta with Sausage and Spinach"
 description: "A quick, flavorful one‑pot meal of angel hair pasta, Italian sausage, and wilted spinach in a light, savory&nbsp;sauce."
 notes: ""
 prep_time: "10m"
