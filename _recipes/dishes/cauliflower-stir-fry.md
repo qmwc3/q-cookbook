@@ -1,6 +1,6 @@
 ---
 layout: recipe
-title: "Cauliflower Stir-Fry with Chicken"
+title: "Cauliflower and Chicken Stir-Fry"
 description: "A quick and flavorful stir-fry with chicken, cauliflower, snow peas, and Thai sweet chili&nbsp;sauce."
 notes: ""
 prep_time: 20m"
