@@ -1,20 +1,21 @@
+---
+# This file is processed by Jekyll so it can use Liquid for correct paths
+---
 document.addEventListener('DOMContentLoaded', function () {
   const input = document.getElementById('ingredient-search-input');
   const results = document.getElementById('ingredient-search-results');
   let recipes = [];
 
+  // Jekyll will render the correct path including baseurl
   const indexUrl = '{{ "/recipes.json" | relative_url }}';
 
   fetch(indexUrl)
-    .then(r => r.ok ? r.json() : Promise.reject('Network error'))
-    .then(data => {
-      // Normalize &nbsp; here for both search and display
-      recipes = data.map(r => ({
-        ...r,
-        ingredients: (r.ingredients || []).map(i => i.replace(/&nbsp;/g, ' '))
-      }));
+    .then(r => {
+      if (!r.ok) throw new Error('Network response was not ok');
+      return r.json();
     })
-    .catch(err => {
+    .then(data => { recipes = data; })
+    .catch((err) => {
       console.error('Failed to load recipes.json:', err);
       if (results) results.innerHTML = '<p class="muted">Could not load recipe index.</p>';
     });
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return (s || '').toLowerCase();
   }
 
+  // Match ONLY consecutive words (phrase match)
   function matches(recipe, query) {
     if (!recipe.ingredients) return false;
     const ingText = recipe.ingredients.join(' ').toLowerCase();
@@ -30,21 +32,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, m => ({
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#39;'
-    }[m]));
+    return String(str).replace(/[&<>"']/g, function (m) {
+      return {
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#39;'
+      }[m];
+    });
   }
 
+  // Highlight ONLY the full phrase
   function highlight(text, query) {
-    const escaped = escapeHtml(text);
+    let escaped = escapeHtml(text);
     if (!query) return escaped;
 
     const safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const phraseRegex = new RegExp(`(${safeQuery})`, 'gi');
+
     return escaped.replace(phraseRegex, '<mark>$1</mark>');
   }
 
@@ -70,9 +76,11 @@ document.addEventListener('DOMContentLoaded', function () {
       li.className = 'ingredient-search-item';
 
       const title = `<a href="${r.url}">${escapeHtml(r.title)}</a>`;
-      const snippet = `<div class="ingredients-snippet">
-        ${highlight(r.ingredients.join(', '), query)}
-      </div>`;
+      const snippet = `
+        <div class="ingredients-snippet">
+          ${highlight((r.ingredients || []).join(', '), query)}
+        </div>
+      `;
 
       li.innerHTML = title + snippet;
       ul.appendChild(li);
@@ -87,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const matched = query
         ? recipes.filter(r => matches(r, query))
         : [];
+
       render(matched, query);
     });
   }
