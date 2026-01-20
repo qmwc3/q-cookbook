@@ -1,12 +1,12 @@
 <header class="site-header">
   <div class="wrap header-row">
-    <h1 class="site-title">
-      <a href="{{ '/' | relative_url }}" style="color:var(--text-color-1);">
+    <h1>
+      <a href="{{ '/' | relative_url }}" style="color:var(--text-color-1); underline:none;">
         {{ site.title | default: "My Cookbook" }}
       </a>
     </h1>
 
-    <h2 class="site-title" align="right" style="color:var(--text-color-1);">
+    <h2 align="right" style="color:var(--text-color-1); underline:none;">
       <a href="{{ '/search/' | relative_url }}">
         Search by ingredient
       </a>
