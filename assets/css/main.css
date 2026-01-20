@@ -28,7 +28,6 @@ ul, ol { margin:0; padding-left:1.25rem }
 /* header */
 .header-row { display: flex;align-items: center;gap: 1.5rem; } 
 .site-header { background:var(--accent-color-2); border-bottom:4px solid var(--accent-color-1) } 
-.site-title a { color:var(--accent-color-1); display:inline-block; text-decoration:none } 
 
 /* footer */
 .site-footer { padding:1rem 0; border-top:1px solid var(--accent-color-1); margin-top:2rem; color:var(--text-color-1) } 
@@ -55,4 +54,8 @@ ul, ol { margin:0; padding-left:1.25rem }
 	h2 { font-size:1.15em; }
 	h3 { font-size:1em; }
  .photo { flex-basis:100% } 
+ 
+ /* recipe page */
+ .meta span:nth-last-child(2) { display: block; }
+ .meta span:last-child { display: inline; margin-left: 0.5rem; }
  } 
