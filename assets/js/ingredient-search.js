@@ -7,25 +7,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   fetch(indexUrl)
     .then(r => r.ok ? r.json() : Promise.reject('Network error'))
-    .then(data => { recipes = data; })
+    .then(data => {
+      // Normalize &nbsp; here for both search and display
+      recipes = data.map(r => ({
+        ...r,
+        ingredients: (r.ingredients || []).map(i => i.replace(/&nbsp;/g, ' '))
+      }));
+    })
     .catch(err => {
       console.error('Failed to load recipes.json:', err);
       if (results) results.innerHTML = '<p class="muted">Could not load recipe index.</p>';
     });
 
-  // Normalize a string for search: lowercase + replace &nbsp;
   function normalize(s) {
-    return (s || '').toLowerCase().replace(/&nbsp;/g, ' ');
+    return (s || '').toLowerCase();
   }
 
-  // Search matching
   function matches(recipe, query) {
     if (!recipe.ingredients) return false;
-    const ingText = (recipe.ingredients || []).map(normalize).join(' ');
+    const ingText = recipe.ingredients.join(' ').toLowerCase();
     return ingText.includes(query);
   }
 
-  // Escape HTML for safe display
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, m => ({
       '&':'&amp;',
@@ -36,19 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }[m]));
   }
 
-  // Decode &nbsp; for display only
-  function decodeHtmlEntities(str) {
-    return str.replace(/&nbsp;/g, ' ')
-              .replace(/&amp;/g, '&')
-              .replace(/&lt;/g, '<')
-              .replace(/&gt;/g, '>')
-              .replace(/&quot;/g, '"')
-              .replace(/&#39;/g, "'");
-  }
-
   function highlight(text, query) {
-    const decoded = decodeHtmlEntities(text);
-    const escaped = escapeHtml(decoded);
+    const escaped = escapeHtml(text);
     if (!query) return escaped;
 
     const safeQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -79,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const title = `<a href="${r.url}">${escapeHtml(r.title)}</a>`;
       const snippet = `<div class="ingredients-snippet">
-        ${highlight((r.ingredients || []).join(', '), query)}
+        ${highlight(r.ingredients.join(', '), query)}
       </div>`;
 
       li.innerHTML = title + snippet;
