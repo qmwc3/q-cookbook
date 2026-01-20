@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const title = `<a href="${r.url}">${escapeHtml(r.title)}</a>`;
       const snippet = `
         <div class="ingredients-snippet">
-          ${highlight((r.ingredients || []).join(', '), query)}
+          ${highlight((r.ingredients || []).map(i => i.replace(/&nbsp;/g, ' ')).join(', '), query)}
         </div>
       `;
 
