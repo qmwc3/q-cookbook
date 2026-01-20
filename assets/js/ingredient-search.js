@@ -14,7 +14,13 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!r.ok) throw new Error('Network response was not ok');
       return r.json();
     })
-    .then(data => { recipes = data; })
+    .then(data => { 
+      // Normalize &nbsp; in ingredients immediately
+      recipes = data.map(r => ({
+        ...r,
+        ingredients: (r.ingredients || []).map(i => i.replace(/&nbsp;/g, ' '))
+      }));
+    })
     .catch((err) => {
       console.error('Failed to load recipes.json:', err);
       if (results) results.innerHTML = '<p class="muted">Could not load recipe index.</p>';
@@ -34,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function escapeHtml(str) {
     return String(str).replace(/[&<>"']/g, function (m) {
       return {
-        ' ':'&nbsp;',
         '&':'&amp;',
         '<':'&lt;',
         '>':'&gt;',
