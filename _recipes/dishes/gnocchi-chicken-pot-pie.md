@@ -1,12 +1,12 @@
 ---
 layout: recipe
-title: "Gnocchi Chicken Pot Pie"
+title: "Gnocchi Chicken Pot&nbsp;Pie"
 description: "A creamy one‑pot gnocchi and chicken dish with&nbsp;vegetables."
 notes: ""
-prep_time: "10 minutes"
-cook_time: "35 minutes"
+prep_time: "10m"
+cook_time: "35m"
 rest_time: ""
-total_time: "45 minutes"
+total_time: "45m"
 servings: "4"
 tags:
   - dishes
@@ -22,7 +22,7 @@ ingredients:
   - "1 teaspoon poultry seasoning"
   - "1 teaspoon thyme"
   - "3 tablespoons flour"
-  - "2 cups chicken stock or broth"
+  - "2 cups chicken stock or chicken broth"
   - "1 cup milk"
   - "12 ounces gnocchi"
   - "1½ cups chicken"
