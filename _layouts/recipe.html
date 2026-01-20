@@ -18,7 +18,7 @@
         {% if page.prep_time and page.prep_time != "" %}Prep: {{ page.prep_time }}{% endif %}
         {% if page.cook_time and page.cook_time != "" %}Cook: {{ page.cook_time }}{% endif %}
         {% if page.rest_time and page.rest_time != "" %}Rest: {{ page.rest_time }}{% endif %}
-        <>{% if page.total_time and page.total_time != "" %}<span white-space: nowrap;>Total: {{ page.total_time }}{% endif %}
+        {% if page.total_time and page.total_time != "" %}<span style="white-space: nowrap;">Total: {{ page.total_time }}{% endif %}
         {% if page.servings and page.servings != "" %}Servings: {{ page.servings }}</span>{% endif %}
       </div>
 
