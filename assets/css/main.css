@@ -35,6 +35,7 @@ ul, ol { margin:0; padding-left:1.25rem }
 .ingredients, .preparations, .directions { background:#var(--bg); padding:0.5rem; border-radius:8px; } 
 .ingredient-header { list-style:none; font-weight:600; }
 .ingredient-nested { list-style:none; padding-left:0; }
+.meta { margin-top: 0.5rem; }
 .meta span { margin-right:1.5rem; color:var(--accent-color-3); font-size:.95rem }
 .recipe-title { margin-top:0 } 
 
