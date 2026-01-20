@@ -3,11 +3,12 @@ layout: null
 permalink: /recipes.json
 ---
 [
-{% for r in site.recipes %}
+{% assign all_recipes = site.recipes | sort: 'title' %}
+{% for r in all_recipes %}
   {
     "title": {{ r.title | jsonify }},
     "url": {{ r.url | relative_url | jsonify }},
-    "ingredients": {{ r.ingredients | jsonify }},
+    "ingredients": {{ r.ingredients | default: [] | jsonify }},
     "description": {{ r.description | default: r.excerpt | strip_html | jsonify }},
     "date": {{ r.date | date: "%Y-%m-%d" | jsonify }},
     "tags": {{ r.tags | default: [] | jsonify }}
