@@ -9,7 +9,7 @@ rest_time: ""
 total_time: "1h"
 servings: "6 large muffins"
 tags: 
-  - snacks
+  - snack
   - breakfast
 source_name: ""
 source_url: ""
