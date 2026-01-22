@@ -6,7 +6,7 @@
       </a>
     </h1>
 
-    <h2 align="right">
+    <h2 class="header-row-right">
       <a href="{{ '/search/' | relative_url }}" style="color:var(--text-color-1); text-decoration:none;">
         Search by ingredient
       </a>
