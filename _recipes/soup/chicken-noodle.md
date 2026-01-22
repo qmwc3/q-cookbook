@@ -9,7 +9,7 @@ rest_time: ""
 total_time: "1h"
 servings: "5"
 tags: 
-  - soups
+  - soup
   - dishes
   - 1-pot
 source_name: ""
