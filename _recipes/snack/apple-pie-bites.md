@@ -5,12 +5,12 @@ description: "Mini apple-filled crescent rolls sprinkled with pecans and apple p
 notes: ""
 prep_time: "5m"
 cook_time: "25m"
-rest_time: "0m"
+rest_time: ""
 total_time: "30m"
 servings: "8 bites"
 tags: 
   - dessert
-  - snacks
+  - snack
 source_name: "The Blond Cook"
 source_url: "https://theblondcook.com/apple-pie-bites/"
 ingredients:
