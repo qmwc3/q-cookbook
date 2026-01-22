@@ -9,7 +9,7 @@ rest_time: ""
 total_time: "20m"
 servings: "20 balls"
 tags: 
-  - snacks
+  - snack
 source_name: "Eat with Clarity"
 source_url: "https://eatwithclarity.com/cake-batter-energy-balls"
 ingredients:
