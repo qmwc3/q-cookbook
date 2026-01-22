@@ -74,15 +74,17 @@ permalink: /recipe-tags/
 
   function filterByTags() {
     results.innerHTML = '';
-
+  
+    // ALWAYS update tag button states
+    highlightActiveTags();
+  
     if(activeTags.size === 0) return;
-
+  
     const filtered = recipes.filter(r => {
       const rTags = r.tags || [];
-      // AND logic: recipe must have all activeTags
       return [...activeTags].every(t => rTags.includes(t));
     });
-
+  
     if(filtered.length === 0) {
       results.innerHTML = '<p>No recipes found matching selected tags.</p>';
     } else {
@@ -92,8 +94,6 @@ permalink: /recipe-tags/
         results.appendChild(li);
       });
     }
-
-    highlightActiveTags();
   }
 
   function highlightActiveTags() {
