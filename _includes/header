@@ -6,10 +6,12 @@
       </a>
     </h1>
 
-    <h2 class="header-row-right">
-      <a href="{{ '/search/' | relative_url }}" style="color:var(--text-color-1); text-decoration:none;">
-        Search by ingredient
-      </a>
-    </h2>
+    <div class="header-row-right">
+      <h2>
+        <a href="{{ '/search/' | relative_url }}" style="color:var(--text-color-1); text-decoration:none;">
+          Search by ingredient
+        </a>
+      </h2>
+    </div>
   </div>
 </header>
