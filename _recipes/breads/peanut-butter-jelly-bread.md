@@ -11,6 +11,7 @@ servings: "1 loaf"
 tags: 
   - breads
   - breakfast
+  - snacks
 source_name: ""
 source_url: ""
 ingredients:
