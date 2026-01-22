@@ -26,8 +26,9 @@ h1, h2, h3, h4, h5, h6, p, li, figcaption, blockquote { text-wrap: pretty; }
 .tags .tag { display:inline-block; padding:.25rem .5rem; background:var(--text-link-color-1); color:var(--bg); border:none; border-radius:4px; box-shadow:none; text-decoration:none; margin-right:.5rem; font-size:.9rem } 
 
 /* header */
-.header-row { display: flex;align-items: center;gap: 1.5rem; }
-.header-row-right { display:flex; justify-content:flex-end; align-items:center; gap:0.5rem; width:100%; }
+.header-row { display:flex; align-items:center; gap:1.5rem; }
+.header-row-right { display:flex; justify-content:flex-end; align-items:center; gap:0.5rem; width:50%; white-space: nowrap; }
+.header-row-left { display:flex; width:50%; white-space: nowrap; }
 .site-header { background:var(--accent-color-2); border-bottom:4px solid var(--accent-color-1) }
 
 /* footer */
