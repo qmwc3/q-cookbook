@@ -37,11 +37,12 @@ h1, h2, h3, h4, h5, h6, p, li, figcaption, blockquote { text-wrap:pretty; }
 .site-footer { padding:1rem 0; border-top:1px solid var(--accent-color-1); margin-top:2rem; color:var(--text-color-1); }
 
 /* recipe page */
+.description { font-weight:300; }
 .ingredients, .preparations, .directions { background:#var(--bg); padding:0.5rem; border-radius:8px; }
 .ingredient-header { list-style:none; font-weight:600; }
 .ingredient-nested { list-style:none; padding-left:0; }
-.metadata { font-weight:500; margin:0 0 1rem; }
-.metadata div { margin:0.5rem 0 0; }
+.metadata { margin:0 0 1rem; }
+.metadata div { font-weight:500; margin:0.5rem 0 0; }
 .metadata span { margin-right:1.5rem; color:var(--accent-color-3); font-size:.95em; }
 .recipe-title { margin:0 0 2rem; }
 
