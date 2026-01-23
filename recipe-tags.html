@@ -115,14 +115,15 @@ permalink: /recipe-tags/
   function highlightActiveTags() {
     const buttons = tagButtons.querySelectorAll('.tag');
     buttons.forEach(btn => {
-      const tagText = btn.textContent.trim(); // normalize spaces
-      if(activeTags.has(tagText)) {
+      const tagKey = btn.dataset.tag; // use the real tag name
+      if(activeTags.has(tagKey)) {
         btn.classList.add('active'); // bold selected tags
       } else {
         btn.classList.remove('active'); // unbold unselected tags
       }
     });
   }
+
 
 
   function updateURL() {
