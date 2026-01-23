@@ -14,13 +14,13 @@
     <article class="recipe-article">
       <h2 class="recipe-title">{{ page.title }}</h2>
 
-      <div class="metadata">
+      <section class="metadata">
         {% if page.prep_time and page.prep_time != "" %}<span>Prep: {{ page.prep_time }}</span>{% endif %}
         {% if page.cook_time and page.cook_time != "" %}<span>Cook: {{ page.cook_time }}</span>{% endif %}
         {% if page.rest_time and page.rest_time != "" %}<span>Rest: {{ page.rest_time }}</span>{% endif %}
-        {% if page.total_time and page.total_time != "" %}<span style="white-space: nowrap;"><span>Total: {{ page.total_time }}</span>{% endif %}
-        {% if page.servings and page.servings != "" %}<span>Servings: {{ page.servings }}</span></span>{% endif %}
-      </div>
+        {% if page.total_time and page.total_time != "" %}<div style="white-space: nowrap;"><span>Total: {{ page.total_time }}</span>{% endif %}
+        {% if page.servings and page.servings != "" %}<span>Servings: {{ page.servings }}</span></div>{% endif %}
+      </section>
 
       {% if page.photos and page.photos != "" %}
       <div class="photo-gallery">
