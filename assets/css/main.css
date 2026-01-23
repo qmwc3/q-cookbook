@@ -15,7 +15,7 @@ body { background:var(--accent-color-2); font-family:Outfit,Roboto,Arial,sans-se
 a { color:var(--text-link-color-1);text-decoration:underline; }
 h1 { font-family:Quicksand,Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:2em; font-weight:700; line-height:1.5; display:inline-block; margin:0; }
 h2 { font-family:Quicksand,Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:1.5em; font-weight:700; line-height:1.5; margin:0; }
-h3 { font-family:Quicksand,Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:1.25em; font-weight:700; line-height:1.5; margin:0; }
+h3 { font-family:"Dancing Script",Roboto,Arial,sans-serif; color:var(--text-color-1); font-size:1.25em; font-weight:700; line-height:1.5; margin:0; }
 ul, ol { margin:0; padding-left:1.25rem; line-height:2; }
 h1, h2, h3, h4, h5, h6, p, li, figcaption, blockquote { text-wrap:pretty; }
 
