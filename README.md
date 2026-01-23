@@ -3,27 +3,27 @@ Do not remove triple dashes (---) they are important
 
 ---
 layout: recipe
-title: ""
-description: ""
-notes: ""
-prep_time: ""
-cook_time: ""
-rest_time: ""
-total_time: ""
-servings: ""
+title: 
+description: 
+notes: 
+prep_time: 
+cook_time: 
+rest_time: 
+total_time: 
+servings: 
 tags: 
 	- 
-source_name: ""
-source_url: ""
+source_name: 
+source_url: 
 ingredients:
 	- 
-ingredients_subhead: ""
+ingredients_subhead: 
 ingredients_2:
-  - ""
+  - 
 preparations:
 	- 
 directions:
 	- 
-pairing: ""
+pairing: 
 photos: []
 ---
