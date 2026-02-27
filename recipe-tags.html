@@ -29,15 +29,23 @@ permalink: /recipe-tags/
   <script>
   // Global mapping of tag URL-safe name to display text
   const TAG_DISPLAY = {
-    "1-pot": "1-Pot",
-    "bread": "Bread",
-    "breakfast": "Breakfast",
-    "dishes": "Dishes",
-    "sauce-dip": "Sauce/Dip",
-    "dessert": "Dessert",
-    "side": "Side",
-    "snack": "Snack",
-    "soup": "Soup",
+    dish: [
+      "1-pot": "1-Pot",
+      "bread": "Bread",
+      "breakfast": "Breakfast",
+      "dishes": "Dishes",
+      "sauce-dip": "Sauce/Dip",
+      "dessert": "Dessert",
+      "side": "Side",
+      "snack": "Snack",
+      "soup": "Soup",
+    ],
+    cuisine: [
+      "Asian",
+      "Italian",
+      "Mediterranean",
+      "Mexican"
+    ]
   };
   
   document.addEventListener('DOMContentLoaded', function () {
