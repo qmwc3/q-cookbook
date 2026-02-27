@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6, p, li, figcaption, blockquote { text-wrap:pretty; }
 .photo { flex:1 1 200px; min-width:200px; }
 .photo img { max-width:100%; height:auto; display:block; border-radius:6px; }
 .photo-gallery { display:flex; gap:.75rem; flex-wrap:wrap; margin:0 0 1rem 0; }
-.recipe-list { list-style:disc; line-height:2; text-decoration:none; }
+.recipe-list { list-style:disc; line-height:2; padding-top: 15px; text-decoration:none; }
 .tags .tag { display:inline-block; padding:.25rem .5rem; background:var(--text-link-color-1); color:var(--bg); border:none; border-radius:4px; box-shadow:none; text-decoration:none; margin-right:.5rem; font-size:.9rem; } 
 
 /* header */
