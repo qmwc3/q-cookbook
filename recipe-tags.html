@@ -22,6 +22,11 @@ permalink: /recipe-tags/
       <h3>Dish Type</h3>
       <div id="dish-tags" class="tags"></div>
     </div>
+
+    <div class="tags-section" style="margin-top:20px;">
+      <h3>Cooking Method</h3>
+      <div id="method-tags" class="tags"></div>
+    </div>
     
     <div class="tags-section" style="margin-top:20px;">
       <h3>Cuisine</h3>
@@ -39,6 +44,8 @@ permalink: /recipe-tags/
 // Display labels
 const TAG_DISPLAY = {
   "1-pot": "1-Pot",
+  "slow-cooker": "Slow Cooker",
+  "sheet-pan": "Sheet Pan",
   "bread": "Bread",
   "breakfast": "Breakfast",
   "dishes": "Dishes",
@@ -65,6 +72,11 @@ const TAG_GROUPS = {
     "side",
     "snack",
     "soup"
+  ],
+  method: [
+    "1-pot",
+    "slow-cooker",
+    "sheet-pan"
   ],
   cuisine: [
     "asian",
@@ -104,10 +116,12 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(err => console.error('Failed to load recipes.json', err));
 
   function renderTags() {
+    // Clear containers
     dishContainer.innerHTML = '';
+    methodContainer.innerHTML = '';
     cuisineContainer.innerHTML = '';
   
-    // Filter recipes by current active tags
+    // Filter recipes based on active tags
     const filteredRecipes = activeTags.size === 0
       ? recipes
       : recipes.filter(r => {
@@ -124,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   
-    // Render buttons
+    // Render buttons for all tags
     Object.keys(TAG_DISPLAY).forEach(name => {
       const display = TAG_DISPLAY[name] || name;
       const count = tagCounts[name] || 0;
@@ -135,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
       btn.dataset.tag = name;
       btn.textContent = `${display} (${count})`;
   
+      // Toggle tag selection
       btn.onclick = () => {
         if (activeTags.has(name)) activeTags.delete(name);
         else activeTags.add(name);
@@ -144,14 +159,22 @@ document.addEventListener('DOMContentLoaded', function () {
         renderTags(); // Re-render to update counts
       };
   
-      if (TAG_GROUPS.dish.includes(name)) dishContainer.appendChild(btn);
-      else if (TAG_GROUPS.cuisine.includes(name)) cuisineContainer.appendChild(btn);
+      // Append button to the correct section
+      if (TAG_GROUPS.dish.includes(name)) {
+        dishContainer.appendChild(btn);
+      } else if (TAG_GROUPS.method.includes(name)) {
+        methodContainer.appendChild(btn);
+      } else if (TAG_GROUPS.cuisine.includes(name)) {
+        cuisineContainer.appendChild(btn);
+      }
     });
   
+    // Highlight active tags
     highlightActiveTags();
   
-    // Show sections even if some counts are 0
+    // Always show all sections
     dishContainer.parentElement.style.display = '';
+    methodContainer.parentElement.style.display = '';
     cuisineContainer.parentElement.style.display = '';
   }
 
