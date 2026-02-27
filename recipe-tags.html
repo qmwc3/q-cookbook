@@ -1,24 +1,36 @@
-function renderTags(tags) {
-    const tagCounts = {};
-    const recipes = getRecipes(); // Assuming this function retrieves the list of recipes
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Tags</title>
+</head>
+<body>
+    <div id="tags-container">
+        <h2>Recipe Tags</h2>
+        <ul id="tags-list">
+            <!-- Tags will be rendered here -->
+        </ul>
+        <div id="tag-count">
+            Total Tags: <span id="count">0</span>
+        </div>
+    </div>
+    <script>
+        function renderTags(tags) {
+            const tagsList = document.getElementById('tags-list');
+            const countDisplay = document.getElementById('count');
+            tagsList.innerHTML = ''; // Clear existing tags
+            tags.forEach(tag => {
+                const li = document.createElement('li');
+                li.textContent = tag;
+                tagsList.appendChild(li);
+            });
+            countDisplay.textContent = tags.length; // Update tag count
+        }
 
-    // Count recipes for each tag
-    recipes.forEach(recipe => {
-        recipe.tags.forEach(tag => {
-            if (!tagCounts[tag]) {
-                tagCounts[tag] = 0;
-            }
-            tagCounts[tag]++;
-        });
-    });
-
-    const tagContainer = document.getElementById('tag-container');
-    tagContainer.innerHTML = ''; // Clear existing tags
-
-    // Render buttons with tag counts
-    for (const tag in tagCounts) {
-        const button = document.createElement('button');
-        button.innerText = `${tag} (${tagCounts[tag]})`;
-        tagContainer.appendChild(button);
-    }
-}
+        // Example tags for demonstration
+        const exampleTags = ['vegan', 'gluten-free', 'quick','popular'];
+        renderTags(exampleTags);
+    </script>
+</body>
+</html>
