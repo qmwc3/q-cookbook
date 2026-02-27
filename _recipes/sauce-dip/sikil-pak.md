@@ -1,4 +1,4 @@
----
+e---
 layout: recipe
 title: "Sikil P'ak"
 description: "A smoky, fresh pepita and tomatillo sauce perfect for vegetables, tacos, and bowls."
