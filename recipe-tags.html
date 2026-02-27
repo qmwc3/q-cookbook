@@ -75,7 +75,12 @@ permalink: /recipe-tags/
         });
       });
     
-      // Sort alphabetically
+      const dishContainer = document.getElementById('dish-tags');
+      const cuisineContainer = document.getElementById('cuisine-tags');
+    
+      dishContainer.innerHTML = '';
+      cuisineContainer.innerHTML = '';
+    
       Object.keys(tagCounts).sort().forEach(name => {
         const display = TAG_DISPLAY[name] || name;
         const count = tagCounts[name];
@@ -84,8 +89,6 @@ permalink: /recipe-tags/
         btn.className = 'tag';
         btn.type = 'button';
         btn.dataset.tag = name;
-    
-        // Add count to label
         btn.textContent = `${display} (${count})`;
     
         btn.onclick = () => {
@@ -96,7 +99,12 @@ permalink: /recipe-tags/
           filterByTags();
         };
     
-        tagButtons.appendChild(btn);
+        // Append to correct section
+        if (TAG_GROUPS.dish.includes(name)) {
+          dishContainer.appendChild(btn);
+        } else if (TAG_GROUPS.cuisine.includes(name)) {
+          cuisineContainer.appendChild(btn);
+        }
       });
     }
 
