@@ -1,16 +1,121 @@
-<!DOCTYPE html>
-<html>
+---
+layout: null
+permalink: /recipe-tags/
+---
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Recipe Tags</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tags Filter - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
 </head>
+  
 <body>
-    <h1>Recipe Tags</h1>
-    <ul>
-        <li>Italian (5)</li>
-        <li>Mexican (3)</li>
-        <li>Asian (2)</li>
-        <li>Vegetarian (6)</li>
-        <li>Dessert (4)</li>
-    </ul>
-</body>
-</html>
+  
+  {% include header %}
+
+  <main class="wrap">
+
+    <div id="tag-buttons" class="tags" style="padding: 0 0 15px;"></div>
+
+    <ul id="tag-results" class="recipe-list"></ul>
+  
+  </main>
+
+  {% include footer %}
+
+  <script>
+  // Global mapping of tag URL-safe name to display text
+  const TAG_DISPLAY = {
+    "1-pot": "1-Pot",
+    "bread": "Bread",
+    "breakfast": "Breakfast",
+    "dishes": "Dishes",
+    "sauce-dip": "Sauce/Dip",
+    "dessert": "Dessert",
+    "side": "Side",
+    "snack": "Snack",
+    "soup": "Soup",
+  };
+  
+  document.addEventListener('DOMContentLoaded', function () {
+  const tagButtons = document.getElementById('tag-buttons');
+  const results = document.getElementById('tag-results');
+  let recipes = [];
+  let activeTags = new Set(); // store all currently selected tags
+  let tagCounts = {}; // track counts for each tag
+
+  const indexUrl = '{{ "/recipes.json" | relative_url }}';
+  const baseUrl = '{{ "/recipe-tags/" | relative_url }}';
+
+  fetch(indexUrl)
+    .then(r => { if (!r.ok) throw new Error('Fetch failed'); return r.json(); })
+    .then(data => {
+      recipes = data;
+      calculateTagCounts();
+      renderTags();
+
+      // Check URL params on load
+      const params = new URLSearchParams(window.location.search);
+      const tagsParam = params.get('tags'); // comma-separated tags
+      if(tagsParam) {
+        tagsParam.split(',').forEach(tag => activeTags.add(decodeURIComponent(tag))); 
+        filterByTags();
+      }
+    })
+    .catch(err => console.error('Failed to load recipes.json', err));
+
+    function calculateTagCounts() {
+      tagCounts = {};
+      recipes.forEach(r => {
+        (r.tags || []).forEach(tag => {
+          tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+        });
+      });
+    }
+
+    function renderTags() {
+    const tagSet = new Set();
+    recipes.forEach(r => (r.tags || []).forEach(tag => tagSet.add(tag)));
+  
+    [...tagSet].sort().forEach(name => {
+      const display = TAG_DISPLAY[name] || name; // fallback to name
+      const count = tagCounts[name] || 0;
+      const btn = document.createElement('button');
+      btn.className = 'tag';
+      btn.type = 'button';
+      btn.dataset.tag = name;
+      btn.textContent = `${display} (${count})`;
+  
+      btn.onclick = () => {
+        if(activeTags.has(name)) activeTags.delete(name);
+        else activeTags.add(name);
+  
+        updateURL();
+        filterByTags();
+      };
+  
+      tagButtons.appendChild(btn);
+    });
+  }
+
+  function filterByTags() {
+    results.innerHTML = '';
+  
+    // ALWAYS update tag button states
+    highlightActiveTags();
+  
+    if(activeTags.size === 0) return;
+  
+    const filtered = recipes.filter(r => {
+      const rTags = r.tags || [];
+      return [...activeTags].every(t => rTags.includes(t));
+    });
+  
+    if(filtered.length === 0) {
+      results.innerHTML = '<p>No recipes found matching selected tags.</p>';
+    } else {
+      filtered.forEach(r => {
+        const li = document.createElement('li');
