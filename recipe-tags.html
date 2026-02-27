@@ -18,7 +18,15 @@ permalink: /recipe-tags/
 
   <main class="wrap">
 
-    <div id="tag-buttons" class="tags" style="padding: 0 0 15px;"></div>
+    <div class="tags-section">
+      <h3>Dish Type</h3>
+      <div id="dish-tags" class="tags"></div>
+    </div>
+    
+    <div class="tags-section" style="margin-top:20px;">
+      <h3>Cuisine</h3>
+      <div id="cuisine-tags" class="tags"></div>
+    </div>
 
     <ul id="tag-results" class="recipe-list"></ul>
   
@@ -26,33 +34,54 @@ permalink: /recipe-tags/
 
   {% include footer %}
 
-  <script>
-  // Global mapping of tag URL-safe name to display text
-  const TAG_DISPLAY = {
-    dish: [
-      "1-pot": "1-Pot",
-      "bread": "Bread",
-      "breakfast": "Breakfast",
-      "dishes": "Dishes",
-      "sauce-dip": "Sauce/Dip",
-      "dessert": "Dessert",
-      "side": "Side",
-      "snack": "Snack",
-      "soup": "Soup",
-    ],
-    cuisine: [
-      "Asian",
-      "Italian",
-      "Mediterranean",
-      "Mexican"
-    ]
-  };
-  
-  document.addEventListener('DOMContentLoaded', function () {
-  const tagButtons = document.getElementById('tag-buttons');
+<script>
+
+// Display labels
+const TAG_DISPLAY = {
+  "1-pot": "1-Pot",
+  "bread": "Bread",
+  "breakfast": "Breakfast",
+  "dishes": "Dishes",
+  "sauce-dip": "Sauce/Dip",
+  "dessert": "Dessert",
+  "side": "Side",
+  "snack": "Snack",
+  "soup": "Soup",
+  "asian": "Asian",
+  "italian": "Italian",
+  "mediterranean": "Mediterranean",
+  "mexican": "Mexican"
+};
+
+// Tag grouping
+const TAG_GROUPS = {
+  dish: [
+    "1-pot",
+    "bread",
+    "breakfast",
+    "dishes",
+    "sauce-dip",
+    "dessert",
+    "side",
+    "snack",
+    "soup"
+  ],
+  cuisine: [
+    "asian",
+    "italian",
+    "mediterranean",
+    "mexican"
+  ]
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+
   const results = document.getElementById('tag-results');
+  const dishContainer = document.getElementById('dish-tags');
+  const cuisineContainer = document.getElementById('cuisine-tags');
+
   let recipes = [];
-  let activeTags = new Set(); // store all currently selected tags
+  let activeTags = new Set();
 
   const indexUrl = '{{ "/recipes.json" | relative_url }}';
   const baseUrl = '{{ "/recipe-tags/" | relative_url }}';
@@ -63,72 +92,80 @@ permalink: /recipe-tags/
       recipes = data;
       renderTags();
 
-      // Check URL params on load
       const params = new URLSearchParams(window.location.search);
-      const tagsParam = params.get('tags'); // comma-separated tags
+      const tagsParam = params.get('tags');
       if(tagsParam) {
-        tagsParam.split(',').forEach(tag => activeTags.add(decodeURIComponent(tag)));
+        tagsParam.split(',').forEach(tag =>
+          activeTags.add(decodeURIComponent(tag))
+        );
         filterByTags();
       }
     })
     .catch(err => console.error('Failed to load recipes.json', err));
 
-    function renderTags() {
-      const tagCounts = {};
-    
-      // Count occurrences
-      recipes.forEach(r => {
-        (r.tags || []).forEach(tag => {
-          tagCounts[tag] = (tagCounts[tag] || 0) + 1;
-        });
+  function renderTags() {
+
+    const tagCounts = {};
+
+    // Count tag usage
+    recipes.forEach(r => {
+      (r.tags || []).forEach(tag => {
+        const key = tag.toLowerCase();
+        tagCounts[key] = (tagCounts[key] || 0) + 1;
       });
-    
-      const dishContainer = document.getElementById('dish-tags');
-      const cuisineContainer = document.getElementById('cuisine-tags');
-    
-      dishContainer.innerHTML = '';
-      cuisineContainer.innerHTML = '';
-    
-      Object.keys(tagCounts).sort().forEach(name => {
-        const display = TAG_DISPLAY[name] || name;
-        const count = tagCounts[name];
-    
-        const btn = document.createElement('button');
-        btn.className = 'tag';
-        btn.type = 'button';
-        btn.dataset.tag = name;
-        btn.textContent = `${display} (${count})`;
-    
-        btn.onclick = () => {
-          if(activeTags.has(name)) activeTags.delete(name);
-          else activeTags.add(name);
-    
-          updateURL();
-          filterByTags();
-        };
-    
-        // Append to correct section
-        if (TAG_GROUPS.dish.includes(name)) {
-          dishContainer.appendChild(btn);
-        } else if (TAG_GROUPS.cuisine.includes(name)) {
-          cuisineContainer.appendChild(btn);
-        }
-      });
+    });
+
+    dishContainer.innerHTML = '';
+    cuisineContainer.innerHTML = '';
+
+    Object.keys(tagCounts).sort().forEach(name => {
+
+      const display = TAG_DISPLAY[name] || name;
+      const count = tagCounts[name];
+
+      const btn = document.createElement('button');
+      btn.className = 'tag';
+      btn.type = 'button';
+      btn.dataset.tag = name;
+      btn.textContent = `${display} (${count})`;
+
+      btn.onclick = () => {
+        if(activeTags.has(name)) activeTags.delete(name);
+        else activeTags.add(name);
+
+        updateURL();
+        filterByTags();
+      };
+
+      if (TAG_GROUPS.dish.includes(name)) {
+        dishContainer.appendChild(btn);
+      } else if (TAG_GROUPS.cuisine.includes(name)) {
+        cuisineContainer.appendChild(btn);
+      }
+    });
+
+    // Hide empty sections
+    if (!dishContainer.children.length) {
+      dishContainer.parentElement.style.display = "none";
     }
 
+    if (!cuisineContainer.children.length) {
+      cuisineContainer.parentElement.style.display = "none";
+    }
+  }
+
   function filterByTags() {
+
     results.innerHTML = '';
-  
-    // ALWAYS update tag button states
     highlightActiveTags();
-  
+
     if(activeTags.size === 0) return;
-  
+
     const filtered = recipes.filter(r => {
-      const rTags = r.tags || [];
+      const rTags = (r.tags || []).map(t => t.toLowerCase());
       return [...activeTags].every(t => rTags.includes(t));
     });
-  
+
     if(filtered.length === 0) {
       results.innerHTML = '<p>No recipes found matching selected tags.</p>';
     } else {
@@ -141,13 +178,12 @@ permalink: /recipe-tags/
   }
 
   function highlightActiveTags() {
-    const buttons = tagButtons.querySelectorAll('.tag');
+    const buttons = document.querySelectorAll('.tag');
     buttons.forEach(btn => {
-      const tagKey = btn.dataset.tag; // use the real tag name
-      if(activeTags.has(tagKey)) {
-        btn.classList.add('active'); // bold selected tags
+      if(activeTags.has(btn.dataset.tag)) {
+        btn.classList.add('active');
       } else {
-        btn.classList.remove('active'); // unbold unselected tags
+        btn.classList.remove('active');
       }
     });
   }
@@ -165,8 +201,16 @@ permalink: /recipe-tags/
     const params = new URLSearchParams(window.location.search);
     activeTags = new Set();
     const tagsParam = params.get('tags');
-    if(tagsParam) tagsParam.split(',').forEach(tag => activeTags.add(decodeURIComponent(tag)));
+    if(tagsParam) {
+      tagsParam.split(',').forEach(tag =>
+        activeTags.add(decodeURIComponent(tag))
+      );
+    }
     filterByTags();
   });
+
 });
 </script>
+
+</body>
+</html>
