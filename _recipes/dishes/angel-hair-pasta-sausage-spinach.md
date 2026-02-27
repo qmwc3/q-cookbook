@@ -11,6 +11,7 @@ servings: 6
 tags: 
   - dishes
   - 1-pot
+  - italian
 source_name: 
 source_url: 
 ingredients:
