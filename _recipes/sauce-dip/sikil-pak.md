@@ -1,4 +1,4 @@
-e---
+---
 layout: recipe
 title: "Sikil P'ak"
 description: "A smoky, fresh pepita and tomatillo sauce perfect for vegetables, tacos, and bowls."
@@ -9,8 +9,8 @@ rest_time: ""
 total_time: "30m"
 servings: "3 cups"
 tags: 
-  - "sauce-dip"
-  - "mexican"
+  - sauce-dip
+  - mexican
 source_name: ""
 source_url: ""
 ingredients:
@@ -24,10 +24,8 @@ ingredients:
   - "¼ cup lime juice"
   - "1 teaspoon salt"
 ingredients_subhead: ""
-ingredients_2:
-  - ""
-preparations:
-  - ""
+ingredients_2: []
+preparations: []
 directions:
   - "Toast the pepitas in a medium skillet over medium-high heat, stirring often, until lightly browned (5&nbsp;minutes)."
   - "Transfer the pepitas to a food processor and process until finely ground (30&nbsp;seconds)."
