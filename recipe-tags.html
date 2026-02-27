@@ -1,36 +1,145 @@
-<!DOCTYPE html>
+---
+layout: null
+permalink: /recipe-tags/
+---
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Tags</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tags Filter - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
 </head>
+  
 <body>
-    <div id="tags-container">
-        <h2>Recipe Tags</h2>
-        <ul id="tags-list">
-            <!-- Tags will be rendered here -->
-        </ul>
-        <div id="tag-count">
-            Total Tags: <span id="count">0</span>
-        </div>
-    </div>
-    <script>
-        function renderTags(tags) {
-            const tagsList = document.getElementById('tags-list');
-            const countDisplay = document.getElementById('count');
-            tagsList.innerHTML = ''; // Clear existing tags
-            tags.forEach(tag => {
-                const li = document.createElement('li');
-                li.textContent = tag;
-                tagsList.appendChild(li);
-            });
-            countDisplay.textContent = tags.length; // Update tag count
-        }
+  
+  {% include header %}
 
-        // Example tags for demonstration
-        const exampleTags = ['vegan', 'gluten-free', 'quick','popular'];
-        renderTags(exampleTags);
-    </script>
-</body>
-</html>
+  <main class="wrap">
+
+    <div id="tag-buttons" class="tags" style="padding: 0 0 15px;"></div>
+
+    <ul id="tag-results" class="recipe-list"></ul>
+  
+  </main>
+
+  {% include footer %}
+
+  <script>
+  // Global mapping of tag URL-safe name to display text
+  const TAG_DISPLAY = {
+    "1-pot": "1-Pot",
+    "bread": "Bread",
+    "breakfast": "Breakfast",
+    "dishes": "Dishes",
+    "sauce-dip": "Sauce/Dip",
+    "dessert": "Dessert",
+    "side": "Side",
+    "snack": "Snack",
+    "soup": "Soup",
+  };
+  
+  document.addEventListener('DOMContentLoaded', function () {
+  const tagButtons = document.getElementById('tag-buttons');
+  const results = document.getElementById('tag-results');
+  let recipes = [];
+  let activeTags = new Set(); // store all currently selected tags
+
+  const indexUrl = '{{ "/recipes.json" | relative_url }}';
+  const baseUrl = '{{ "/recipe-tags/" | relative_url }}';
+
+  fetch(indexUrl)
+    .then(r => { if (!r.ok) throw new Error('Fetch failed'); return r.json(); })
+    .then(data => {
+      recipes = data;
+      renderTags();
+
+      // Check URL params on load
+      const params = new URLSearchParams(window.location.search);
+      const tagsParam = params.get('tags'); // comma-separated tags
+      if(tagsParam) {
+        tagsParam.split(',').forEach(tag => activeTags.add(decodeURIComponent(tag)));
+        filterByTags();
+      }
+    })
+    .catch(err => console.error('Failed to load recipes.json', err));
+
+    function renderTags() {
+    const tagSet = new Set();
+    recipes.forEach(r => (r.tags || []).forEach(tag => tagSet.add(tag)));
+  
+    [...tagSet].sort().forEach(name => {
+      const display = TAG_DISPLAY[name] || name; // fallback to name
+      const btn = document.createElement('button');
+      btn.className = 'tag';
+      btn.type = 'button';
+      btn.dataset.tag = name;
+      btn.textContent = display;
+  
+      btn.onclick = () => {
+        if(activeTags.has(name)) activeTags.delete(name);
+        else activeTags.add(name);
+  
+        updateURL();
+        filterByTags();
+      };
+  
+      tagButtons.appendChild(btn);
+    });
+  }
+
+  function filterByTags() {
+    results.innerHTML = '';
+  
+    // ALWAYS update tag button states
+    highlightActiveTags();
+  
+    if(activeTags.size === 0) return;
+  
+    const filtered = recipes.filter(r => {
+      const rTags = r.tags || [];
+      return [...activeTags].every(t => rTags.includes(t));
+    });
+  
+    if(filtered.length === 0) {
+      results.innerHTML = '<p>No recipes found matching selected tags.</p>';
+    } else {
+      filtered.forEach(r => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="${r.url}">${r.title}</a>`;
+        results.appendChild(li);
+      });
+    }
+  }
+
+  function highlightActiveTags() {
+    const buttons = tagButtons.querySelectorAll('.tag');
+    buttons.forEach(btn => {
+      const tagKey = btn.dataset.tag; // use the real tag name
+      if(activeTags.has(tagKey)) {
+        btn.classList.add('active'); // bold selected tags
+      } else {
+        btn.classList.remove('active'); // unbold unselected tags
+      }
+    });
+  }
+
+  function updateURL() {
+    const params = new URLSearchParams();
+    if(activeTags.size > 0) {
+      params.set('tags', [...activeTags].map(encodeURIComponent).join(','));
+    }
+    const newUrl = baseUrl + (params.toString() ? '?' + params.toString() : '');
+    history.pushState({}, '', newUrl);
+  }
+
+  window.addEventListener('popstate', () => {
+    const params = new URLSearchParams(window.location.search);
+    activeTags = new Set();
+    const tagsParam = params.get('tags');
+    if(tagsParam) tagsParam.split(',').forEach(tag => activeTags.add(decodeURIComponent(tag)));
+    filterByTags();
+  });
+});
+</script>
