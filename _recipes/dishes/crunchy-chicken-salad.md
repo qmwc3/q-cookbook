@@ -10,6 +10,7 @@ total_time: "50m"
 servings: "6"
 tags: 
   - "dishes"
+  - "asian"
 source_name: ""
 source_url: ""
 ingredients:
