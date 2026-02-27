@@ -107,18 +107,21 @@ document.addEventListener('DOMContentLoaded', function () {
     dishContainer.innerHTML = '';
     cuisineContainer.innerHTML = '';
   
-    // Compute counts based on current active filters
-    const tagCounts = {};
-  
-    recipes.forEach(r => {
-      const rTags = (r.tags || []).map(t => t.toLowerCase());
-  
-      // Only count recipe if it matches all currently active tags **except the one we're counting**
-      if ([...activeTags].every(t => t === null || rTags.includes(t) || !activeTags.has(t))) {
-        rTags.forEach(tag => {
-          tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    // Filter recipes by current active tags
+    const filteredRecipes = activeTags.size === 0
+      ? recipes
+      : recipes.filter(r => {
+          const rTags = (r.tags || []).map(t => t.toLowerCase());
+          return [...activeTags].every(t => rTags.includes(t));
         });
-      }
+  
+    // Count tags in the filtered recipes
+    const tagCounts = {};
+    filteredRecipes.forEach(r => {
+      (r.tags || []).forEach(t => {
+        const tag = t.toLowerCase();
+        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+      });
     });
   
     // Render buttons
@@ -141,18 +144,15 @@ document.addEventListener('DOMContentLoaded', function () {
         renderTags(); // Re-render to update counts
       };
   
-      if (TAG_GROUPS.dish.includes(name)) {
-        dishContainer.appendChild(btn);
-      } else if (TAG_GROUPS.cuisine.includes(name)) {
-        cuisineContainer.appendChild(btn);
-      }
+      if (TAG_GROUPS.dish.includes(name)) dishContainer.appendChild(btn);
+      else if (TAG_GROUPS.cuisine.includes(name)) cuisineContainer.appendChild(btn);
     });
   
     highlightActiveTags();
   
-    // Hide empty sections
-    dishContainer.parentElement.style.display = Object.keys(TAG_GROUPS.dish).some(t => tagCounts[t] > 0) ? '' : 'none';
-    cuisineContainer.parentElement.style.display = Object.keys(TAG_GROUPS.cuisine).some(t => tagCounts[t] > 0) ? '' : 'none';
+    // Show sections even if some counts are 0
+    dishContainer.parentElement.style.display = '';
+    cuisineContainer.parentElement.style.display = '';
   }
 
   function filterByTags() {
