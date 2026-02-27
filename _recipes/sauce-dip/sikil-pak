@@ -9,8 +9,8 @@ rest_time: ""
 total_time: "30m"
 servings: "3 cups"
 tags: 
-  - sauce-dip
-  - mexican
+  - "sauce-dip"
+  - "mexican"
 source_name: ""
 source_url: ""
 ingredients:
