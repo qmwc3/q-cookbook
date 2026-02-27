@@ -63,7 +63,6 @@ const TAG_DISPLAY = {
 // Tag grouping
 const TAG_GROUPS = {
   dish: [
-    "1-pot",
     "bread",
     "breakfast",
     "dishes",
@@ -90,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const results = document.getElementById('tag-results');
   const dishContainer = document.getElementById('dish-tags');
+  const methodContainer = document.getElementById('method-tags');
   const cuisineContainer = document.getElementById('cuisine-tags');
 
   let recipes = [];
