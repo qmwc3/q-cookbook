@@ -11,6 +11,7 @@ servings: "4"
 tags:
   - dishes
   - 1-pot
+  - asian
 source_name: ""
 source_url: ""
 ingredients:
