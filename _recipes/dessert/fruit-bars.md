@@ -3,10 +3,10 @@ layout: recipe
 title: "Fruit Bars"
 description: "Sweet and crumbly fruit bars with a buttery oat topping, perfect for dessert or a snack."
 notes: "Works best with raspberry or triple berry jam."
-prep_time: ""
-cook_time: ""
-rest_time: "40 minutes"
-total_time: "40 minutes"
+prep_time: "20 minutes"
+cook_time: "25 minutes"
+rest_time: ""
+total_time: "45 minutes"
 servings: ""
 tags: 
   - dessert
