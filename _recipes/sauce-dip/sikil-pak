@@ -1,38 +1,39 @@
 ---
 layout: recipe
-title: "Sikil P'ak"
-description: "A smoky, fresh pepita and tomatillo sauce perfect for vegetables, tacos, and bowls."
-notes: ""
-prep_time: ""
-cook_time: ""
-rest_time: ""
-total_time: "30m"
-servings: "3 cups"
+title: Sikil P'ak
+description: A smoky, fresh pepita and tomatillo sauce perfect for vegetables, tacos, and bowls.
+notes: 
+prep_time: 
+cook_time: 
+rest_time: 
+total_time: 30m
+servings: 3 cups
 tags: 
   - sauce-dip
-source_name: ""
-source_url: ""
+  - mexican
+source_name: 
+source_url: 
 ingredients:
-  - "¾ cup pepitas"
-  - "4 tomatillos"
-  - "2 shallots"
-  - "2 teaspoons garlic"
-  - "1 jalapeno"
-  - "2 cups cilantro"
-  - "2 teaspoons lime zest"
-  - "¼ cup lime juice"
-  - "1 teaspoon salt"
-ingredients_subhead: ""
+  - ¾ cup pepitas
+  - 4 tomatillos
+  - 2 shallots
+  - 2 teaspoons garlic
+  - 1 jalapeno
+  - 2 cups cilantro
+  - 2 teaspoons lime zest
+  - ¼ cup lime juice
+  - 1 teaspoon salt
+ingredients_subhead: 
 ingredients_2:
-  - ""
+  - 
 preparations:
-  - ""
+  - 
 directions:
-  - "Toast the pepitas in a medium skillet over medium-high heat, stirring often, until lightly browned (5&nbsp;minutes)."
-  - "Transfer the pepitas to a food processor and process until finely ground (30&nbsp;seconds)."
-  - "In the same skillet, add the tomatillos, shallots, garlic, and jalapeño. Cook until charred on all sides (5&nbsp;minutes)."
-  - "Add the cilantro, lime zest, lime juice, and salt to the food processor. Pulse about 20 times."
-  - "Add the charred vegetables and process until chopped."
-pairing: "Pairs well with vegetables, tortilla chips, crudités, tacos, bowls."
+  - Toast the pepitas in a medium skillet over medium-high heat, stirring often, until lightly browned (5&nbsp;minutes).
+  - Transfer the pepitas to a food processor and process until finely ground (30&nbsp;seconds).
+  - In the same skillet, add the tomatillos, shallots, garlic, and jalapeño. Cook until charred on all sides (5&nbsp;minutes).
+  - Add the cilantro, lime zest, lime juice, and salt to the food processor. Pulse about 20 times.
+  - Add the charred vegetables and process until chopped.
+pairing: Pairs well with vegetables, tortilla chips, crudités, tacos, bowls.
 photos: []
 ---
