@@ -66,28 +66,39 @@ permalink: /recipe-tags/
     .catch(err => console.error('Failed to load recipes.json', err));
 
     function renderTags() {
-    const tagSet = new Set();
-    recipes.forEach(r => (r.tags || []).forEach(tag => tagSet.add(tag)));
-  
-    [...tagSet].sort().forEach(name => {
-      const display = TAG_DISPLAY[name] || name; // fallback to name
-      const btn = document.createElement('button');
-      btn.className = 'tag';
-      btn.type = 'button';
-      btn.dataset.tag = name;
-      btn.textContent = display;
-  
-      btn.onclick = () => {
-        if(activeTags.has(name)) activeTags.delete(name);
-        else activeTags.add(name);
-  
-        updateURL();
-        filterByTags();
-      };
-  
-      tagButtons.appendChild(btn);
-    });
-  }
+      const tagCounts = {};
+    
+      // Count occurrences
+      recipes.forEach(r => {
+        (r.tags || []).forEach(tag => {
+          tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+        });
+      });
+    
+      // Sort alphabetically
+      Object.keys(tagCounts).sort().forEach(name => {
+        const display = TAG_DISPLAY[name] || name;
+        const count = tagCounts[name];
+    
+        const btn = document.createElement('button');
+        btn.className = 'tag';
+        btn.type = 'button';
+        btn.dataset.tag = name;
+    
+        // Add count to label
+        btn.textContent = `${display} (${count})`;
+    
+        btn.onclick = () => {
+          if(activeTags.has(name)) activeTags.delete(name);
+          else activeTags.add(name);
+    
+          updateURL();
+          filterByTags();
+        };
+    
+        tagButtons.appendChild(btn);
+      });
+    }
 
   function filterByTags() {
     results.innerHTML = '';
