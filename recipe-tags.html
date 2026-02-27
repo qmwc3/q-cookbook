@@ -142,23 +142,26 @@ document.addEventListener('DOMContentLoaded', function () {
     Object.keys(TAG_DISPLAY).forEach(name => {
       const display = TAG_DISPLAY[name] || name;
       const count = tagCounts[name] || 0;
-  
+    
+      // Skip tags with 0 count
+      if (count === 0) return;
+    
       const btn = document.createElement('button');
       btn.className = 'tag';
       btn.type = 'button';
       btn.dataset.tag = name;
       btn.textContent = `${display} (${count})`;
-  
+    
       // Toggle tag selection
       btn.onclick = () => {
         if (activeTags.has(name)) activeTags.delete(name);
         else activeTags.add(name);
-  
+    
         updateURL();
         filterByTags();
         renderTags(); // Re-render to update counts
       };
-  
+    
       // Append button to the correct section
       if (TAG_GROUPS.dish.includes(name)) {
         dishContainer.appendChild(btn);
