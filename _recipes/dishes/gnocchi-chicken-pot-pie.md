@@ -18,7 +18,7 @@ ingredients:
   - "1 cup carrots"
   - "2 celery stalks"
   - "1 shallot or yellow onion"
-  - "2 cloves garlic"
+  - "2 teaspoons garlic"
   - "1 teaspoon poultry seasoning"
   - "1 teaspoon thyme"
   - "3 tablespoons flour"
