@@ -6,37 +6,31 @@
     <title>Recipe Tags</title>
 </head>
 <body>
-    <h1>Recipe Tags</h1>
-    <div id="tag-container">
-        <!-- Example tag buttons -->
-        <button class="tag" data-tag="vegan">Vegan</button>
-        <button class="tag" data-tag="gluten-free">Gluten Free</button>
-        <button class="tag" data-tag="dessert">Dessert</button>
+    <div id="tags-container">
+        <h2>Recipe Tags</h2>
+        <ul id="tags-list">
+            <!-- Tags will be rendered here -->
+        </ul>
+        <div id="tag-count">
+            Total Tags: <span id="count">0</span>
+        </div>
     </div>
-
     <script>
-        // Function to highlight active tags
-        function highlightActiveTags() {
-            const tags = document.querySelectorAll('.tag');
+        function renderTags(tags) {
+            const tagsList = document.getElementById('tags-list');
+            const countDisplay = document.getElementById('count');
+            tagsList.innerHTML = ''; // Clear existing tags
             tags.forEach(tag => {
-                tag.addEventListener('click', () => {
-                    tag.classList.toggle('active');
-                });
+                const li = document.createElement('li');
+                li.textContent = tag;
+                tagsList.appendChild(li);
             });
+            countDisplay.textContent = tags.length; // Update tag count
         }
 
-        // Function to update URL with selected tags
-        function updateURL() {
-            const activeTags = []; // array to hold active tags
-            const tags = document.querySelectorAll('.tag.active');
-            tags.forEach(tag => {
-                activeTags.push(tag.getAttribute('data-tag'));
-            });
-            const newURL = `?tags=${activeTags.join(',')}`;
-            window.history.pushState({path: newURL}, '', newURL);
-        }
-
-        highlightActiveTags();
+        // Example tags for demonstration
+        const exampleTags = ['vegan', 'gluten-free', 'quick','popular'];
+        renderTags(exampleTags);
     </script>
 </body>
 </html>
