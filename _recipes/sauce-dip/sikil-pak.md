@@ -7,7 +7,7 @@ prep_time: ""
 cook_time: ""
 rest_time: ""
 total_time: "30m"
-servings: "3 cups"
+servings: "1½ cups"
 tags: 
   - sauce-dip
   - mexican
