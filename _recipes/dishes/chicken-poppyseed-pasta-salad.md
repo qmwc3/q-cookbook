@@ -28,9 +28,6 @@ ingredients_2:
   - "½ cup of mayonnaise"
   - "¾ cup of milk"
   - "3½ tablespoons of white wine vinegar"
-ingredients_subhead: ""
-ingredients_2:
-  - ""
 preparations:
   - "Cook and dice the chicken."
   - "Chop up the celery."
