@@ -15,7 +15,7 @@ source_url:
 ingredients:
   - 1 head cauliflower
   - 4 tablespoons vegetable oil
-  - 2 chicken breasts
+  - 3 chicken breasts
   - ¼ cup roasted peanuts
   - 1 cup snow peas
   - 1 yellow bell pepper
@@ -24,7 +24,7 @@ ingredients:
   - ⅓ cup Thai sweet chili sauce
   - 1½ teaspoons soy sauce
   - ¼ cup cilantro
-  - 1 cup rice
+  - 2 cups rice
 ingredients_subhead: 
 ingredients_2:
   - 
