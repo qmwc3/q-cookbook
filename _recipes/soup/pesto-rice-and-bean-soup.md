@@ -1,6 +1,6 @@
 ---
 layout: recipe
-title: "Pesto Rice & Bean Soup"
+title: "Pesto Chicken, Rice and Bean Soup"
 description: "A comforting rice and bean soup flavored with sundried tomatoes, aromatic vegetables, and a vibrant finish of pesto."
 notes: ""
 prep_time: "15m"
@@ -12,6 +12,7 @@ tags:
   - soup
   - dishes
   - 1-pot
+  - italian
 source_name: "Delish"
 source_url: "https://www.delish.com/cooking/recipe-ideas/a38917306/pesto-rice-soup-recipe"
 ingredients:
